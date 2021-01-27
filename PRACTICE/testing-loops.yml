@@ -1,0 +1,60 @@
+---
+- name: "create users on servers depending on their UID"
+  hosts: proxy
+  gather_facts: False
+  become: yes
+  remote_user: automation
+  vars:
+    motd_value: "{{ lookup('file', '/etc/motd') }}"
+      #    item_vaulue: "{{ item.value }}"
+    repos:
+      - name: repo1
+        os_list:
+          - centos
+          - rhel
+        major_distribution_list:
+          - 6
+          - 7
+          - 8
+        archs:
+          - noarch
+          - x86_64
+  vars_files:
+    - /home/automation/plays/secret.yml
+    - /home/automation/plays/vars/user_list.yml
+  tasks:
+
+    - include_tasks: repo-paths.yml
+#    - debug:
+#        msg: outer "{{repos}}"    
+      with_items: "{{ repos }}"
+      loop_control:
+        loop_var: repo
+
+
+
+# - name: Count our fruit
+#  hosts: webservers
+#   tasks:
+#     - debug:
+#         msg: "{{ item }} with index {{ my_idx }}"
+#       loop:
+#         - apple
+#         - banana
+#         - pear
+#       loop_control:
+#         index_var: my_idx
+#
+
+
+
+
+
+
+
+
+
+
+
+
+

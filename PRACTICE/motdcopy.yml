@@ -1,0 +1,22 @@
+---
+- name: replace any existing content of /etc/motd with text
+  hosts: proxy webservers database
+  remote_user: automation
+  become: yes
+  vars:
+  tasks:
+    - name: write text to /etc/motd
+      copy:
+        content: "Welcome to HAProxy server written using copy module"
+        dest: /etc/motd
+      when: proxy | bool
+    - name: write text to /etc/motd
+      copy:
+        content: "Welcome to Apache server copy module"
+        dest: /etc/motd
+      when: webservers | bool
+    - name: write text to /etc/motd
+      copy:
+        content: "Welcome to MySQL server copy module"
+        dest: /etc/motd
+      when: database | bool

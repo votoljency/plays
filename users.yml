@@ -1,0 +1,53 @@
+---
+- name: "create users on servers depending on their UID"
+  hosts: proxy
+  become: yes
+  remote_user: automation
+  vars:
+  #users:
+  #  - username: alice
+  #    uid: 1201
+  #  - username: vincent
+  #    uid: 1202
+  #  - username: sandy
+  #    uid: 2201
+  #  - username: patrick
+  #    uid: 2202
+  #
+  #users:
+  #  - { username: alice, uid: 1201 }
+  #  - { username: vincent, uid: 1202 }
+  #  - { username: sandy, uid: 2201 }
+  #  - { username: patrick, uid: 2202 }
+  #
+    users: [{ username: alice, uid: 1201 }, { username: vincent, uid: 1202 }, { username: sandy, uid: 2201 }, { username: patrick, uid: 2202 }]
+  vars_files:
+    - /home/automation/plays/secret.yml
+  # - /home/automation/plays/vars/user_list.yml
+  tasks:
+    - name: create user
+      user:
+        name: "{{item.username}}"
+        state: present
+        groups: "wheel"
+        shell: "/bin/bash"
+        password: "{{user_password | password_hash('sha512') }}"
+      loop: "{{users}}"
+      when: '"{{item.uid}}" is match("1")'
+
+    - name: create user
+      user:
+        name: "{{item.username}}"
+        state: present
+        groups: "wheel"
+        shell: "/bin/bash"
+        password: "{{user_password | password_hash('sha512') }}"
+      loop: "{{users}}"
+      when: '"{{item.uid}}" is match("2")'
+#     with_items: "{{groups['webservers']}}"  
+#     when: ansible_hostname !=  item  or ansible_hostname ==  item
+ 
+
+
+    - name: copy ssh keys
+      copy:  

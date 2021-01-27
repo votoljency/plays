@@ -1,0 +1,63 @@
+---
+- name: "create users on servers depending on their UID"
+  hosts: proxy
+  become: yes
+  remote_user: automation
+  vars:
+    motd_value: "{{ lookup('file', '/etc/motd') }}"
+      #    item_vaulue: "{{ item.value }}"
+  vars_files:
+    - /home/automation/plays/secret.yml
+    - /home/automation/plays/vars/user_list.yml
+  tasks:
+#    - name: "Ansible | Print a variable"
+#      debug:
+#       msg: "The operating system is {{ ansible_distribution }}"
+#
+    - name: "Ansible | Print a variable if defined"                          
+      debug:
+        msg: "The 'user' variable value is {{ item.users }}"
+      loop: "{{users}}"    
+      when: user is defined
+   
+    - name: "Ansible | Print a message if a variable is undefined"
+      debug:
+        msg: "The 'users' variable is undefined"
+      when: users is not defined
+
+    - debug:
+        msg: "motd value is {{ motd_value }}"
+
+    - name: "loop over groups"
+      debug:
+        msg: "User {{ item }} is {{ item }}"
+      with_items: "{{groups['webservers']}}"  
+      when: ansible_hostname !=  item  or ansible_hostname ==  item
+ 
+
+
+
+#    - name: "Ansible | Print a variable if defined"                            
+#      vars:
+#        item_vaulue: 1 
+#      debug:
+#         msg: "User {{ item.key }} is {{ item.value[0] }}"
+#          #when: item_vaulue is defined
+#      with_items: "{{ lookup('dict', groups['webservers']) }}"      
+#
+       #debug:
+      #  msg: "{{ item | dictsort | map('join',':') | join(' ') }}"
+      # with_items: "{{ groups }}"
+      # when: groups is defined
+
+
+    - name: "Ansible | Print multiple variable"
+      debug:
+        msg: |
+          The role is {{ host_role }}
+          The environment is {{ host_environment }}
+
+
+    - name: "Ansible | List all known variables and facts"
+      debug:
+        var: hostvars[inventory_hostname]

@@ -1,0 +1,25 @@
+---
+users:
+
+  - username: user1
+    comment: "User 1"
+    group: admin
+    password: "sha password"
+    keys:
+      active:
+        - "ssh-rsa etc"
+    admin: yes
+
+  - username: user2
+    comment: "User 2"
+    group: users
+    groups: deployer
+    keys:
+      active:
+        - "ssh-rsa etc"
+    hosts:
+      user:
+        - host1
+        - host2
+      deployer:
+        - host3

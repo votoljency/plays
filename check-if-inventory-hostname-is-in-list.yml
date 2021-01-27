@@ -1,0 +1,21 @@
+---
+- name: "Create users"
+  hosts: proxy
+  become: yes
+  remote_user: automation
+  vars:
+  vars_files:
+    - vars/users.yml  
+  tasks:
+    - name: create user
+      user:
+        name: "{{ item.username }}"
+        comment: "{{ item.comment | default('User {{item.username}}') }}"
+        password: "{{ item.password | default('!') }}"
+        state: "{{ item.state | default('present') }}"
+        shell: "{{ item.shell | default('/bin/bash') }}"
+        group: "{{ item.group | default('users') }}"
+      with_items: '{{ users }}'
+      when: > 
+        item.username is defined and ((item.admin is defined and item.admin == True) or (item.hosts is defined and item.hosts.user is defined and
+        inventory_hostname in item.hosts.user))

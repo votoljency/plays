@@ -1,0 +1,38 @@
+---
+- name: "create users on servers depending on their UID"
+  hosts: proxy:webservers:database
+  become: yes
+  remote_user: automation
+  vars:
+  #users:
+  #  - username: alice
+  #    uid: 1201
+  #  - username: vincent
+  #    uid: 1202
+  #  - username: sandy
+  #    uid: 2201
+  #  - username: patrick
+  #    uid: 2202
+  #
+  #users:
+  #  - { username: alice, uid: 1201 }
+  #  - { username: vincent, uid: 1202 }
+  #  - { username: sandy, uid: 2201 }
+  #  - { username: patrick, uid: 2202 }
+  #
+    users: [{ username: alice, uid: 1201 }, { username: vincent, uid: 1202 }, { username: sandy, uid: 2201 }, { username: patrick, uid: 2202 }]
+  vars_files:
+    - /home/automation/plays/secret.yml
+  # - /home/automation/plays/vars/user_list.yml
+  tasks:
+    - include_tasks: inner-users-database.yml
+      when: ansible_hostname in outer_item 
+      loop: "{{ groups['database'] }}"
+      loop_control:
+        loop_var: outer_item
+
+    - include_tasks: inner-users-webservers.yml
+      when: ansible_hostname in outer_item
+      loop: "{{ groups['webservers'] }}"
+      loop_control:
+        loop_var: outer_item

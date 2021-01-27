@@ -1,0 +1,21 @@
+---
+- name: "create users on servers depending on their UID"
+  hosts: proxy
+  become: yes
+  remote_user: automation
+  vars_files:
+    # - /home/automation/plays/secret.yml
+    - /home/automation/plays/vars/user_list.yml
+  tasks:
+    - name: run a command
+      command: uptime
+      register: server_uptime
+
+    - name: inspect the server_uptime variable
+      debug:
+        var: server_uptime
+          
+
+    - name: show the server uptime
+      debug:
+        msg: "{{ server_uptime.stdout }}"

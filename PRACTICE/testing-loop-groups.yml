@@ -1,0 +1,12 @@
+---
+- name: "Looping over inventory"
+  hosts: proxy:webservers:database
+  become: yes
+  remote_user: automation
+  vars_files:
+    - /home/automation/plays/vars/user_list.yml
+  tasks:
+    - name: Show all the hosts in the inventory
+      ansible.builtin.debug:
+         msg: "{{ item }}"
+      loop: "{{ groups['webservers'] }}"

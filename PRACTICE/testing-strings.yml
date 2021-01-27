@@ -1,0 +1,22 @@
+---
+- name:
+  hosts: proxy:webservers:database
+  vars:
+   uid: "23203"
+
+  tasks:
+    - debug:
+        msg: "matched pattern 1"
+      when: uid is match("2")
+
+    - debug:
+        msg: "matched pattern 2"
+      when: uid is search("1")
+
+    - debug:
+        msg: "matched pattern 3"
+      when: uid is search("1")
+
+    - debug:
+        msg: "matched pattern 4"
+      when: uid is regex("example.com/\w+/foo")

@@ -1,0 +1,37 @@
+---
+- name: "double loop ansible"
+  hosts: proxy
+  gather_facts: False
+  become: yes
+  remote_user: automation
+  vars:
+    motd_value: "{{ lookup('file', '/etc/motd') }}"
+    objs:
+      - { key1: value1, key2: [ value2, value3] }
+      - { key1: value4, key2: [ value5, value6] } 
+  vars_files:
+    - /home/automation/plays/secret.yml
+    - /home/automation/plays/vars/user_list.yml
+  tasks:
+    - name: give users access to multiple databases
+      mysql_user:
+        name: "{{ item[0] }}"
+        priv: "{{ item[1] }}.*:ALL"
+        append_privs: yes
+        password: "foo"
+      with_nested:
+        - [ 'alice', 'bob' ]
+        - [ 'clientdb', 'employeedb', 'providerdb' ]
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+

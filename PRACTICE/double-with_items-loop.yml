@@ -1,0 +1,25 @@
+---
+
+- hosts: all
+  become: yes
+  vars:
+    userslist:
+      - name: user1
+        primary : user1-group
+        groups :
+           - group1
+           - group2
+      - name: user2
+        primary : user2-group
+        groups :
+           - group3
+           - group4
+
+  tasks:
+  - name: Creating Secondary group
+    group:
+      name: "{{ item.1 }}"
+      state: absent 
+    with_subelements:
+      - '{{ userslist }}'
+      - groups

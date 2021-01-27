@@ -1,0 +1,26 @@
+    - name: create user
+      user:
+        name: "{{item.username}}"
+        state: present
+        groups: "wheel"
+        shell: "/bin/bash"
+        password: "{{user_password | password_hash('sha512') }}"
+      loop: "{{users}}"
+      when: '"{{item.uid}}" is match("1") and ansible_hostname in outer_item'
+
+    - name: create user
+      user:
+        name: "{{item.username}}"
+        state: present
+        groups: "wheel"
+        shell: "/bin/bash"
+        password: "{{user_password | password_hash('sha512') }}"
+      loop: "{{users}}"
+      when: '"{{item.uid}}" is match("2") and ansible_hostname in outer_item'
+#     with_items: "{{groups['webservers']}}"  
+#     when: ansible_hostname !=  item  or ansible_hostname ==  item
+ 
+
+
+    - name: copy ssh keys
+      copy:  

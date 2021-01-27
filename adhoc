@@ -1,0 +1,5 @@
+#!/bin/bash
+ansible all -m ansible.builtin.user -a "name=automation groups=wheel" -u root
+ansible all -m ansible.builtin.file -a "path=/home/automation/.ssh state=directory mode=0700 owner=automation group=automation" -u root
+ansible all -m authorized_key -a "user=automation state=present key='{{ lookup('file', '/home/automation/.ssh/id_rsa.pub') }}'" -u root
+ansible all -m lineinfile -a "path=/etc/sudoers state=present regexp='^#%wheel' line='%wheel ALL=(ALL:ALL) NOPASSWD: ALL' validate='visudo -cf %s'" -u root

@@ -1,0 +1,25 @@
+---
+- name: replace any existing content of /etc/motd with text
+  hosts: proxy webservers database
+  remote_user: automation
+  become: yes
+  vars:
+  tasks:
+    - name: write text to /etc/motd proxy
+      copy:
+        content: "Welcome to HAProxy server written using loop over groups 2230"
+        dest: /etc/motd
+      when: ansible_hostname in item
+      loop: "{{ groups['proxy'] }}" 
+    - name: write text to /etc/motd webservers
+      copy:
+        content: "Welcome to Apache server written using loop over groups 2230"
+        dest: /etc/motd
+      when: ansible_hostname in item
+      loop: "{{ groups['webservers'] }}"
+    - name: write text to /etc/motd database
+      copy:
+        content: "Welcome to MySQL server written using loop over groups 2230"
+        dest: /etc/motd
+      when: ansible_hostname in item
+      loop: "{{ groups['database'] }}"

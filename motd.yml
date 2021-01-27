@@ -1,0 +1,16 @@
+---
+- name: replace any existing content of /etc/motd with text
+  hosts: proxy webservers database
+  remote_user: automation
+  become: yes
+  vars:
+  tasks:
+    - name: write text to /etc/motd
+      shell: echo "Welcome to HAProxy server" > /etc/motd
+      when: proxy | bool
+    - name: write text to /etc/motd
+      shell: echo "Welcome to Apache server" > /etc/motd
+      when: webservers | bool
+    - name: write text to /etc/motd
+      shell: echo "Welcome to MySQL server" > /etc/motd
+      when: database | bool

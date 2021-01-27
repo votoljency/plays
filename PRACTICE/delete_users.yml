@@ -1,0 +1,30 @@
+---
+- name: "create users on servers depending on their UID"
+  hosts: proxy:webservers:database
+  become: yes
+  remote_user: automation
+  vars_files:
+    - /home/automation/plays/secret.yml
+    - /home/automation/plays/vars/user_list.yml
+  tasks:
+    - name: delete user
+      user:
+        name: "{{item.username}}"
+        state: absent
+        groups: "wheel"
+        shell: "/bin/bash"
+        remove: yes
+        password: "{{user_password | password_hash('sha512') }}"
+      loop: "{{users}}"
+      when: '"{{item.uid}}" is match("1")'
+
+    - name: delete user
+      user:
+        name: "{{item.username}}"
+        state: absent
+        groups: "wheel"
+        shell: "/bin/bash"
+        remove: yes
+        password: "{{user_password | password_hash('sha512') }}"
+      loop: "{{users}}"
+      when: '"{{item.uid}}" is match("2")'

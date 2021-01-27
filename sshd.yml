@@ -1,0 +1,26 @@
+---
+- name: configure sshd_config
+  hosts: proxy webservers database
+  remote_user: automation
+  become: yes
+  vars:
+  tasks:
+    - name: set banner
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: ^#Banner
+        line: Banner /etc/motd
+    - name: set MaxAuthTries
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: ^#MaxAuth
+        line: MaxAuthTries 3
+    - name: X11Forwarding is disabled
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: ^#X11F
+        line: X11Forwarding yes
+    - name: restart sshd
+      service:
+        name: sshd
+        state: restarted

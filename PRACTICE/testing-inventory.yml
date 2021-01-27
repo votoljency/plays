@@ -1,0 +1,26 @@
+---
+- name: "print inventory entry"
+  hosts: proxy:awebserverss:database
+  become: yes
+  remote_user: automation
+  vars:
+      proxy_host: all.hosts.children.proxy.hosts
+      foo:
+        field1: one
+        field2: two
+  vars_files:
+    - /home/automation/plays/vars/user_list.yml
+    - /home/automation/plays/inventory.yml
+  tasks:
+#    - name: print inventory entry
+#      ansible.builtin.debug:
+#        msg: "{{proxy_host}}"
+ #    - name: "Ansible | List all known variables and facts"
+ #      debug:
+ #        var: hostvars[inventory_hostname]
+    - name: "Ansible | Print multiple variable"
+      debug:
+        msg: "{{all.children.database}}"
+        msg: "{{hostvars[groups['webserverss'][0]]['group_names']}}"
+        msg: "{{hostvars[groups['awebserverss'][0]['awebservers'][1]]}}"
+        msg: "{{hostvars[groups['awebserverss']]}}"
