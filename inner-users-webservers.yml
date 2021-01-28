@@ -6,5 +6,5 @@
         shell: "/bin/bash"
         password: "{{user_password | password_hash('sha512') }}"
       loop: "{{users}}"
-      when: '"{{item.uid}}" is match("1") and ansible_hostname in outer_item'
+      when: '"{{item.uid}}" is match("3") and ansible_hostname in outer_item'
 
