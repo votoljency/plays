@@ -5,3 +5,9 @@
         groups: "wheel"
         shell: "/bin/bash"
         password: "{{user_password | password_hash('sha512') }}"
+
+    - name: Set authorized key taken from file
+      authorized_key:
+        user: "{{item.username}}"
+        state: present
+        key: "{{ lookup('file', '/home/automation/.ssh/id_rsa.pub') }}"    
