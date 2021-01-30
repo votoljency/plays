@@ -1,10 +1,4 @@
-    - name: create user
-      user:
-        name: "{{item.username}}"
-        state: present
-        groups: "wheel"
-        shell: "/bin/bash"
-        password: "{{user_password | password_hash('sha512') }}"
+    - include_tasks: inner-users-database-sshkey.yml
       loop: "{{users}}"
       when: '"{{item.uid}}" is match("2") and ansible_hostname in outer_item'
 #     with_items: "{{groups['webservers']}}"  
