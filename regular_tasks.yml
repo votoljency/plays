@@ -9,7 +9,7 @@
   tasks:
     - name: Scheduled Tasks
       cron:
-        name: "appends date output to /var/log/time.log"
+        name: "appends"
         min: "01"
         hour: "*"
         day: "*"
