@@ -11,8 +11,8 @@
       cron:
         name: "appends date output to /var/log/time.log"
         min: 01
-        hour: *
-        day: *
-        month: *
+        hour: 
+        day: 
+        month: 
         job: date >> /var/log/time.log
         user: root
