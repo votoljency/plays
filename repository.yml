@@ -1,5 +1,5 @@
 ---
-- name: Scheduled Tasks
+- name: Software Repositories
   hosts: database
   become: yes
   remote_user: automation
