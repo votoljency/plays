@@ -1,7 +1,7 @@
 ---
 - name: Scheduled Tasks
   hosts: proxy
-  become:
+  become: yes
   remote_user: automation
   vars:
   vars_files:
