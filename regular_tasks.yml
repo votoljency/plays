@@ -10,7 +10,7 @@
     - name: Scheduled Tasks
       cron:
         name: "appends date output to /var/log/time.log"
-        min: 01
+        minute: 01
         hour: 
         day: 
         month: 
