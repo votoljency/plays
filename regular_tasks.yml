@@ -1,2 +1,18 @@
 ---
 - name: Scheduled Tasks
+  hosts: proxy
+  become: yes
+  remote_user: automation
+  vars:
+  vars_files:
+    - /home/automation/plays/secret.yml
+  tasks:
+    - name: Scheduled Tasks
+      cron:
+        name: "appends"
+        min: "01"
+        hour: "*"
+        day: "*"
+        month: "*"
+        job: "date >> /var/log/time.log"
+        user: "root"
