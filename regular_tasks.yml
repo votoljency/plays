@@ -10,9 +10,9 @@
     - name: Scheduled Tasks
       cron:
         name: "appends date output to /var/log/time.log"
-        min: "01"
-        hour: "*"
-        day: "*"
-        month: "*"
-        job: "date >> /var/log/time.log"
-        user: "root"
+        min: 01
+        hour: *
+        day: *
+        month: *
+        job: date >> /var/log/time.log
+        user: root
