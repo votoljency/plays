@@ -1,0 +1,6 @@
+- name: Create a new primary partition with a size of 1GiB
+  parted:
+    device: /dev/vdb
+    number: 1
+    state: present
+    part_end: 800MiB  

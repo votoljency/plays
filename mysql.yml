@@ -1,0 +1,10 @@
+---
+- name: Create and work with sample-mysql role
+  hosts: database
+  become: yes
+  remote_user: automation
+  vars:
+  vars_files:
+    - /home/automation/plays/secret.yml
+  roles:
+    - sample-mysql
