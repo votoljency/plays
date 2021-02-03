@@ -7,4 +7,9 @@
 - name: Create a volume group on top of /dev/sda3 and resize the volume group /dev/sda3 to the maximum possible
   lvg:
     vg: vg_database
-    pvs: /dev/vdb1   
+    pvs: /dev/vdb1
+- name: Create a logical volume the size of 512 MB
+  lvol:
+    vg: vg_database
+    lv: lv_mysql
+    size: 512m    
