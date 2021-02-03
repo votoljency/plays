@@ -7,5 +7,4 @@
 - name: Create a volume group on top of /dev/sda3 and resize the volume group /dev/sda3 to the maximum possible
   lvg:
     vg: vg_database
-    pvs: /dev/vdb1
-    pvresize: yes    
+    pvs: /dev/vdb1   
