@@ -15,3 +15,9 @@
     size: 512m
 - name: create xfs filesystem
   command: mkfs.xfs  /dev/vg_database/lv_mysql
+- name: mount lv_mysql /mnt/mysql_backups
+    mount:
+      path: /mnt/mysql_backups
+      src: /dev/vg_database/lv_mysql
+      fstype: xfs
+      state: present
