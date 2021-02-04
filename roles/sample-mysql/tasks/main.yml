@@ -47,4 +47,9 @@
   firewalld:
     service: mysql
     permanent: yes 
-    state: enabled       
+    state: enabled
+- name: Make sure mysqld is running and enabled
+  systemd:
+    enabled: yes
+    state: started
+    name: mysqld           
