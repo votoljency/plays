@@ -13,17 +13,17 @@
     vg: vg_database
     lv: lv_mysql
     size: 512m
-- name: create xfs filesystem
-  filesystem:
-    dev: /dev/vg_database/lv_mysql
-    force: yes
-    fstype: xfs
 - name: unmount lv_mysql /mnt/mysql_backups
   mount:
     path: /mnt/mysql_backups
     src: /dev/vg_database/lv_mysql
     fstype: xfs
     state: unmounted
+- name: create xfs filesystem
+  filesystem:
+    dev: /dev/vg_database/lv_mysql
+    force: yes
+    fstype: xfs
 - name: mount lv_mysql /mnt/mysql_backups
   mount:
     path: /mnt/mysql_backups
