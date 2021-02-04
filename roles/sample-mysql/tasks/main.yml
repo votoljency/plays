@@ -23,4 +23,4 @@
     path: /mnt/mysql_backups
     src: /dev/vg_database/lv_mysql
     fstype: xfs
-    state: present
+    state: mounted
