@@ -33,4 +33,8 @@
 - name: install the latest version of mysql
   yum:
     name: mysql-community-server
-    state: installed    
+    state: installed
+- name: install the latest version of firewalld
+  yum:
+    name: firewalld
+    state: installed        
