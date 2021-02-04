@@ -4,7 +4,7 @@
     number: 1
     state: present
     part_end: 800MiB  
-- name: Create a volume group on top of /dev/sda3 and resize the volume group /dev/sda3 to the maximum possible
+- name: Create a volume group on top of /dev/vdb1 and resize the volume group /dev/vdb1 to the maximum possible
   lvg:
     vg: vg_database
     pvs: /dev/vdb1
@@ -38,7 +38,7 @@
   yum:
     name: firewalld
     state: present
-- name: Make sure a service is running
+- name: Make sure firewalld is running and enabled
   systemd:
     enabled: yes
     state: started
