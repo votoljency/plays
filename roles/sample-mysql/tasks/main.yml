@@ -37,4 +37,9 @@
 - name: install the latest version of firewalld
   yum:
     name: firewalld
-    state: installed        
+    state: present
+- name: enable firewall
+  firewalld:
+    service: mysql
+    permanent: yes 
+    state: enabled       
