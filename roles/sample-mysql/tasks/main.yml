@@ -12,4 +12,6 @@
   lvol:
     vg: vg_database
     lv: lv_mysql
-    size: 512m    
+    size: 512m
+- name: create xfs filesystem
+  command: mkfs.xfs  /dev/vg_database/lv_mysql
