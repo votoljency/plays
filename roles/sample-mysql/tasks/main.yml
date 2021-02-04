@@ -24,3 +24,7 @@
     src: /dev/vg_database/lv_mysql
     fstype: xfs
     state: mounted
+- name: install the latest version of mysql
+  yum:
+    name: mysql-community-server
+    state: installed    
