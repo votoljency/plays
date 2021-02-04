@@ -38,7 +38,12 @@
   yum:
     name: firewalld
     state: present
-- name: enable firewall
+- name: Make sure a service is running
+  systemd:
+    enabled: yes
+    state: started
+    name: firewalld
+- name: enable mysql on firewall
   firewalld:
     service: mysql
     permanent: yes 
