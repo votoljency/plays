@@ -6,13 +6,12 @@
   remote_user: automation
   vars:
     motd_value: "{{ lookup('file', '/etc/motd') }}"
-    - name: Give me list combo of two lists
-      ansible.builtin.debug:
-        msg: "{{ [1,2,3,4,5] | zip(['a','b','c','d','e','f']) | list }}"
-
-    - name: Give me shortest combo of two lists
-      ansible.builtin.debug:
-        msg: "{{ [1,2,3] | zip(['a','b','c','d','e','f']) | list }}"
+  - name: Give me list combo of two lists
+    ansible.builtin.debug:
+      msg: "{{ [1,2,3,4,5] | zip(['a','b','c','d','e','f']) | list }}"
+  - name: Give me shortest combo of two lists
+    ansible.builtin.debug:
+      msg: "{{ [1,2,3] | zip(['a','b','c','d','e','f']) | list }}"
 
  #  objs:
  #     - { key1: value1, key2: [ value2, value3] }
