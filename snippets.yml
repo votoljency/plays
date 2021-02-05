@@ -23,7 +23,7 @@
       ansible.builtin.debug:
         msg: "{{ [1,2,3] | zip_longest(['a','b','c','d','e','f'], [21, 22, 23], fillvalue='X') | list }}"    
     - name: construct dict
-      ansibel.builtin.debug:
+      ansible.builtin.debug:
         msg: "{{ dict(keys_list | zip(values_list)) }}"
  #  objs:
  #     - { key1: value1, key2: [ value2, value3] }
