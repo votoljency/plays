@@ -1,0 +1,78 @@
+---
+- name: "snippets"
+  hosts: proxy
+  gather_facts: False
+  become: yes
+  remote_user: automation
+  vars:
+    motd_value: "{{ lookup('file', '/etc/motd') }}"
+    objs:
+ #     - { key1: value1, key2: [ value2, value3] }
+ #     - { key1: value4, key2: [ value5, value6] } 
+      - key1: value1
+        key2:
+          - value2
+          - value3
+      - key1: value4
+        key2:
+          - value5
+          - value6
+  vars_files:
+    - /home/automation/plays/secret.yml
+    - /home/automation/plays/vars/user_list.yml
+  tasks:
+    - name: create directories
+      file: 
+        path: "{{ item.key1 }}"
+        state: directory
+      with_items:
+        - "{{ objs}}"
+#        - { key1: value1, key2: [ value2, value3] }
+#        - { key1: value4, key2: [ value5, value6] }
+#        - key1: value1
+#          key2:
+#            - value2
+#            - value3
+    - name: create files
+      file:
+        path: "{{ item.0.key1 }}/{{ item.1 }}"
+        state: touch
+      with_subelements:
+        - "{{ objs }}"
+        - key2 
+
+
+#    - include_tasks: repo-paths.yml
+#    - debug:
+#        msg: outer "{{repos}}"    
+#      with_items: "{{ repos }}"
+#      loop_control:
+#        loop_var: repo
+#
+
+
+# - name: Count our fruit
+#  hosts: webservers
+#   tasks:
+#     - debug:
+#         msg: "{{ item }} with index {{ my_idx }}"
+#       loop:
+#         - apple
+#         - banana
+#         - pear
+#       loop_control:
+#         index_var: my_idx
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
