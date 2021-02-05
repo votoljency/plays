@@ -18,7 +18,7 @@
   tasks:    
     - name: flatten a list
       ansible.builtin.debug:
-        msg: "{{ [3, [4, 2] ] | flatten(levels=1) }}"
+        msg: "{{ [3, [4, 2] ] | flatten(levels=2) }}"
  #      msg: "{{ ansible_mounts | map(attribute='mount') | join(',') }}"
  #      msg: "{{ tags | dict2items }}"
  #  - name: Touch files with an optional mode
