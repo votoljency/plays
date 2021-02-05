@@ -22,7 +22,7 @@
     - name: Give me longest combo of three lists , fill with X
       ansible.builtin.debug:
         msg: "{{ [1,2,3] | zip_longest(['a','b','c','d','e','f'], [21, 22, 23], fillvalue='X') | list }}"    
-    - name:
+    - name: construct dict
       ansibel.builtin.debug:
         msg: "{{ dict(keys_list | zip(values_list)) }}"
  #  objs:
