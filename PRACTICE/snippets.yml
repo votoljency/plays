@@ -1,6 +1,6 @@
 ---
 - name: "snippets"
-  hosts: proxys
+  hosts: proxy
   gather_facts: False
   become: yes
   remote_user: automation
