@@ -18,7 +18,7 @@
   tasks:    
     - name: Transform a dictionary into a list
       ansible.builtin.debug:
-        msg: "{{ "{{tags}}" | dict2items }}"
+        msg: "{{ tags | dict2items }}"
  #  - name: Touch files with an optional mode
  #    ansible.builtin.file:
  #      dest: "{{ item.path }}"
