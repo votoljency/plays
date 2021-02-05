@@ -16,9 +16,9 @@
       Application: payment
       Environment: dev  
   tasks:    
-    - name: Transform a dictionary into a list
+    - name: flatten a list
       ansible.builtin.debug:
-        msg: "{{ [3, [4, 2] ] | flatten }}"
+        msg: "{{ [3, [4, 2] ] | flatten(levels=1) }}"
  #      msg: "{{ ansible_mounts | map(attribute='mount') | join(',') }}"
  #      msg: "{{ tags | dict2items }}"
  #  - name: Touch files with an optional mode
