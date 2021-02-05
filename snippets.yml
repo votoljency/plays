@@ -18,7 +18,8 @@
   tasks:    
     - name: Transform a dictionary into a list
       ansible.builtin.debug:
-        msg: "{{ ansible_mounts | map(attribute='mount') | join(',') }}"
+        msg: "{{ [3, [4, 2] ] | flatten }}"
+ #      msg: "{{ ansible_mounts | map(attribute='mount') | join(',') }}"
  #      msg: "{{ tags | dict2items }}"
  #  - name: Touch files with an optional mode
  #    ansible.builtin.file:
