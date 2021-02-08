@@ -2,7 +2,8 @@
   systemd:
     name: firewalld
     state: "{{ firewall_enabled | ternary('started','stopped') }}"
-    enabled: "{{ firewall_enabled }}"    
+    enabled: "{{ firewall_enabled }}"
+        
 - name: Manage firewalld zone files
   include: manage_firewalld_zone.yml
   loop: "{{ firewalld_zones | default([]) }}"
