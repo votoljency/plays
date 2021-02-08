@@ -34,7 +34,7 @@
   yum:
     name: "{{ item }}"
     state: installed
-  with item:
+  with_items:
       - mysql-community-server
       - PyMySQL
 - name: install the latest version of firewalld
