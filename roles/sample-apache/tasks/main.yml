@@ -1,4 +1,4 @@
 - name: install httpd, mod_ssl, php
-yum:
-  name: [httpd, mod_ssl, php]
-  state: installed
+  yum:
+    name: [httpd, mod_ssl, php]
+    state: installed
