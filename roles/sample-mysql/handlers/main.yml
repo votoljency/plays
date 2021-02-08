@@ -1,0 +1,4 @@
+- name: Make sure mysqld is restarted
+  systemd:
+    state: restarted
+    name: mysqld
