@@ -32,10 +32,11 @@
     state: mounted
 - name: install the latest version of mysql
   yum:
-    name: "{{ item }}"
+    name: mysql-community-server
     state: installed
-  with_items:
-      - mysql-community-server
+- name: pip install MyPySQL
+  pip:
+    name: MyPySQL    
 - name: install the latest version of firewalld
   yum:
     name: firewalld
