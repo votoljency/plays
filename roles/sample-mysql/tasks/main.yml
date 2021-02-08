@@ -32,7 +32,7 @@
     state: mounted
 - name: install the latest version of mysql
   yum:
-    name: {{item}}
+    name: {{ item }}
     state: installed
     with item:
       - mysql-community-server
