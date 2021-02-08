@@ -4,9 +4,10 @@
     state: installed
 - name: configure firewall    
   firewalld:
-    service: "{{ item }}"
+#    service: "{{ item }}"
+    service: [http, https]
     permanent: yes
     state: enabled
-  with_items:
-     - http
-     - https      
+#  with_items:
+#     - http
+#     - https      
