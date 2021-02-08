@@ -7,6 +7,12 @@
     name: firewalld
     state: "{{ firewall_enabled | ternary('started','stopped') }}"
     enabled: "{{ firewall_enabled }}"    
+- name: Manage firewalld zone files
+  include: manage_firewalld_zone.yml
+  loop: "{{ firewalld_zones | default([]) }}"
+  loop_control:
+    loop_var: zone
+  when: firewall_enabled
 - name: configure firewall    
   firewalld:
     service: "{{ item }}"

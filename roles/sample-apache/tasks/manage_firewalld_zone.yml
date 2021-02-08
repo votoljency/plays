@@ -1,0 +1,21 @@
+---
+
+- name: Get current zone status
+  shell: /bin/firewall-cmd --list-all-zones | grep -q "^{{ zone.name }}" && echo configured || echo not-configured
+  register: zone_status
+  changed_when: false
+
+- name: Manage {{ zone.name }} zone
+  shell: /bin/firewall-cmd --permanent --new-zone="{{ zone.name }}" && /bin/firewall-cmd --reload
+  when: zone_status.stdout == 'not-configured'
+
+- name: Manage {{ zone.name }} firewalld zone sources
+  firewalld:
+    zone: "{{ zone.name }}"
+    source: "{{ source_cidr }}"
+    state: enabled
+    permanent: yes
+    immediate: yes
+  loop: "{{ zone.sources }}"
+  loop_control:
+    loop_var: source_cidr
