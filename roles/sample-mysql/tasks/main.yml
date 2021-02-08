@@ -34,9 +34,9 @@
   yum:
     name: mysql-community-server
     state: installed
-- name: pip install MyPySQL
+- name: pip install PyMySQL
   pip:
-    name: MyPySQL    
+    name: PyMySQL    
 - name: install the latest version of firewalld
   yum:
     name: firewalld
