@@ -1,9 +1,9 @@
-- name: install httpd, mod_ssl, php
+- name: install httpd, mod_ssl, php, firewalld
   yum:
-    name: [httpd, mod_ssl, php]
+    name: [httpd, mod_ssl, php, firewalld]
     state: installed
 - name: configure firewall    
   firewalld:
-    service: [http, https]
+    service: "[http, https]"
     permanent: yes
     state: enabled    
