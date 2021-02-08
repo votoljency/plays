@@ -3,6 +3,6 @@
     name: [httpd, mod_ssl, php]
     state: installed
 - firewalld:
-  service: [http, https]
-  permanent: yes
-  state: enabled    
+    service: [http, https]
+    permanent: yes
+    state: enabled    
