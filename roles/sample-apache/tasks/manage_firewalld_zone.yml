@@ -7,7 +7,7 @@
 
 - name: print zone_status
   debug:
-    msg: zone_status
+    msg: "{{zone_status}}"
 
 - name: Manage {{ zone.name }} zone
   shell: /bin/firewall-cmd --permanent --new-zone="{{ zone.name }}" && /bin/firewall-cmd --reload
