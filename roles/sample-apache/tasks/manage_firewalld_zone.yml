@@ -5,6 +5,10 @@
   register: zone_status
   changed_when: false
 
+- name: print zone_status
+  debug:
+    msg: zone_status
+
 - name: Manage {{ zone.name }} zone
   shell: /bin/firewall-cmd --permanent --new-zone="{{ zone.name }}" && /bin/firewall-cmd --reload
   when: zone_status.stdout == 'not-configured'
