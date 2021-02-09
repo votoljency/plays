@@ -8,4 +8,12 @@
       loop_control:
         loop_var: rule
 
- when: firewall_enabled
+
+    - name: Manage outbound rules
+      template:
+        src: direct.xml.j2
+        dest: /etc/firewalld/direct.xml
+      notify: reload_firewalld
+      when: firewalld_rules.outbound is defined
+
+  when: firewall_enabled
