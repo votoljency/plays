@@ -1,0 +1,11 @@
+---
+
+- block:
+
+    - name: Manage inbound rules
+      include: manage_inbound_rule.yml
+      loop: "{{ firewalld_rules.inbound | default([]) }}"
+      loop_control:
+        loop_var: rule
+
+ when: firewall_enabled

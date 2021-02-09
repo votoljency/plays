@@ -1,0 +1,4 @@
+---
+
+firewalld_service_path: /etc/firewalld/services
+firewalld_default_zone: local
