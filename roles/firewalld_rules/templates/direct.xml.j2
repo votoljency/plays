@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<direct>
+  <rule table="filter" chain="OUTPUT" ipv="ipv4" priority="0">-m state --state ESTABLISHED,RELATED -j ACCEPT</rule>
+{# Loop through each element in firewalld_rules.outbound #}
+{% for rule in firewalld_rules.outbound %}
+{# Loop through each element in rule.hosts. If the key does not exist, set a list with a single '0.0.0.0' element #}
+{% for host in ( rule.hosts | default(["0.0.0.0"]) ) %}
+{# If rule.ports key exists, handle targeting specific ports on the host #}
+{% if rule.ports is defined %}
+{# Select how to handle the port[s], based on whether there is 1 or multiple #}
+{% if ( rule.ports | length ) == 1 %}
+{# If there is only one port, we do not need to use 'multiport' #}
+  <rule table="filter" chain="OUTPUT" ipv="ipv4" priority="{{ rule.priority | default('1') }}">-p {{ rule.protocol }} -d {{ host }} -m {{ rule.protocol }} --dport {{ rule.ports | join(',') }} -j {{ (rule.target | default('accept')) | upper }}</rule>
+{# If there are multiple ports, we add the 'multiport' option and join the port list into a comma separated string #}
+{% else %}
+  <rule table="filter" chain="OUTPUT" ipv="ipv4" priority="{{ rule.priority | default('1') }}">-p {{ rule.protocol }} -d {{ host }} -m multiport --dports {{ rule.ports | join(',') }} -j {{ (rule.target | default('accept')) | upper }}</rule>
+{% endif %}
+{# No ports have been passed, in which case we simply want to allow all traffic to the specified host #}
+{% else %}
+  <rule table="filter" chain="OUTPUT" ipv="ipv4" priority="{{ rule.priority | default('1') }}">-p {{ rule.protocol }} -d {{ host }} -j {{ (rule.target | default('accept')) | upper }}</rule>
+{% endif %}
+{# End of the host loop #}
+{% endfor %}
+{# End of the rule loop #}
+{% endfor %}
+{# Default reject all rule. With 999 priority it will be the last rule matched if none of the previous ones have #}
+  <rule table="filter" chain="OUTPUT" ipv="ipv4" priority="999">-j REJECT</rule>
+</direct>
