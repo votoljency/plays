@@ -4,7 +4,7 @@ testrole_firewalld_rules:
   inbound:
     - name: app_inbound
       zone:
-        - local
+        - testing
       ports:
         - port: 80
           protocol: tcp
