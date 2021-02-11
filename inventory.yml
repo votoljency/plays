@@ -25,3 +25,7 @@ all:
         proxy: no
         webservers: no
         database: yes
+
+    clockworknet:
+      hosts:
+        client3.ipa.vm:  

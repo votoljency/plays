@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: clockworknet
   become: yes
   roles:
     - testrole
