@@ -1,0 +1,4 @@
+---
+
+dependencies:
+  - { role: firewalld_rules, firewalld_rules: "{{ testrole_firewalld_rules }}" }

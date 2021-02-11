@@ -1,0 +1,36 @@
+---
+
+testrole_firewalld_rules:
+  inbound:
+    - name: app_inbound
+      zone:
+        - local
+      ports:
+        - port: 80
+          protocol: tcp
+        - port: 443
+          protocol: tcp
+  outbound:
+    - name: app_smtp
+      protocol: tcp
+      ports:
+        - 25
+      hosts:
+        - 10.10.1.10 
+        - 10.10.1.11
+
+# inbound:
+#   - name: test_service
+#     zone:
+#       - testing
+#     ports:
+#       - port: 8080
+#         protocol: tcp
+#   - name: another_test_service
+#     zone:
+#       - development
+#       - testing
+#     ports:
+#       - port: 8090
+#         protocol: tcp
+#

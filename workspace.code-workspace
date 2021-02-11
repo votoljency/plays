@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "roles/firewalld_common"
+		},
+		{
+			"path": "roles/common"
+		}
+	],
+	"settings": {}
+}
