@@ -13,6 +13,7 @@
       template:
         src: direct.xml.j2
         dest: /etc/firewalld/direct.xml
-      notify: reload_firewalld
+    #  notify: reload_firewalld
+  
       when: firewalld_rules.outbound is defined
 
