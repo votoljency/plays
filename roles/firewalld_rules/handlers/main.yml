@@ -1,4 +1,8 @@
 - name: reload_firewalld
   systemd:
     name: firewalld
-    state: reload
+    state: reload 
+
+- name: hello
+  debug:
+    msg: HELLO    
