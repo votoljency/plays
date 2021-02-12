@@ -1,4 +1,9 @@
 ---
+- name: Delete service file
+  file:
+    path: "{{ firewalld_service_path }}/{{ rule.name }}.xml"
+    state: absent
+
 - name: Manage {{ rule.name }} firewalld service definition
   template:
     src: service.xml.j2
