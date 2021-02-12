@@ -22,5 +22,6 @@
     service: "{{ rule.name }}"
     permanent: yes
     immediate: yes
-    zone: "{{ rule.zone | default( firewalld_default_zone ) }}"
+    zone: "{{ rule.zone }}"
+#    zone: "{{ rule.zone | default( firewalld_default_zone ) }}"
     state: enabled
