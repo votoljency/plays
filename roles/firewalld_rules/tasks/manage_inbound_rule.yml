@@ -10,6 +10,16 @@
   notify:
     - reload_firewalld
 
+handlers:
+  - name: reload_firewalld
+  #  systemd:
+  #    name: firewalld
+  #    state: reload 
+  #
+  #- name: hello
+    debug:
+      msg: HELLO    
+
 #- name: flush-handlers
 #  meta: flush_handlers
 #
