@@ -14,5 +14,5 @@
         dest: /etc/firewalld/direct.xml
       notify: reload_firewalld
   
-      when: firewalld_rules.outbound is defined
+#     when: firewalld_rules.outbound is defined
 
