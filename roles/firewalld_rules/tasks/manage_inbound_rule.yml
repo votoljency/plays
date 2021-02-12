@@ -9,8 +9,8 @@
     mode: "0644"
   notify: reload_firewalld
 
-- name: flush-handlers
-  meta: flush_handlers
+#- name: flush-handlers
+#  meta: flush_handlers
 #
 #- name: Manage {{ rule.name }} firewalld service
 #  firewalld:
