@@ -16,4 +16,3 @@
       notify: reload_firewalld
       when: firewalld_rules.outbound is defined
 
-  when: firewall_enabled
