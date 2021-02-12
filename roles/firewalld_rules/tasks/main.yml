@@ -1,6 +1,5 @@
 ---
 
-- block:
 
     - name: Manage inbound rules
       include: manage_inbound_rule.yml

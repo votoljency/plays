@@ -1,23 +1,14 @@
-
-  - name: Manage {{ rule.name }} firewalld service definition
-    template:
-      src: service.xml.j2
-      dest: "{{ firewalld_service_path }}/{{ rule.name }}.xml"
-      owner: root
-      group: root
-      mode: "0644"
-    notify:
-      - reload_firewalld
-
-handlers:
-  - name: reload_firewalld
-  #  systemd:
-  #    name: firewalld
-  #    state: reload 
-  #
-  #- name: hello
-    debug:
-      msg: HELLO    
+---
+- name: Manage {{ rule.name }} firewalld service definition
+  template:
+    src: service.xml.j2
+    dest: "{{ firewalld_service_path }}/{{ rule.name }}.xml"
+    owner: root
+    group: root
+    mode: "0644"
+  notify:
+    - reload_firewalld
+    
 
 #- name: flush-handlers
 #  meta: flush_handlers
