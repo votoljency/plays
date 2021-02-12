@@ -9,13 +9,13 @@
     mode: "0644"
   notify: reload_firewalld
 
-- name: flush-handlers
-  meta: flush_handlers
-
-- name: Manage {{ rule.name }} firewalld service
-  firewalld:
-    service: "{{ rule.name }}"
-    permanent: yes
-    immediate: yes
-    zone: "{{ rule.zone | default( firewalld_default_zone ) }}"
-    state: enabled
+#- name: flush-handlers
+#  meta: flush_handlers
+#
+#- name: Manage {{ rule.name }} firewalld service
+#  firewalld:
+#    service: "{{ rule.name }}"
+#    permanent: yes
+#    immediate: yes
+#    zone: "{{ rule.zone | default( firewalld_default_zone ) }}"
+#    state: enabled
