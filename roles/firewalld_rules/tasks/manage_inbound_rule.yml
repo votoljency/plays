@@ -1,5 +1,5 @@
 ---
-
+tasks:
   - name: Manage {{ rule.name }} firewalld service definition
     template:
       src: service.xml.j2
