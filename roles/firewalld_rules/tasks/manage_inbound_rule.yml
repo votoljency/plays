@@ -7,7 +7,7 @@
     owner: root
     group: root
     mode: "0644"
-  notify: rreload_firewalld
+  notify: reload_firewalld
 
 - meta: flush_handlers
 
