@@ -59,8 +59,8 @@
 - name: Configure MySQL server configuration file
   template: src=my.cnf.j2 dest=/etc/my.cnf
   tags: mysql
-  notify: restart mysql
+  notify: restart_mysql
 
-- meta: flush_handlers
+#- meta: flush_handlers
 
                
