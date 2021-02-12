@@ -63,9 +63,4 @@
 
 - meta: flush_handlers
 
-- name: Make sure there is neither a database with name 'foo', nor one with name 'bar'
-  community.mysql.mysql_db:
-    name:
-      - foo
-      - bar
-    state: absent                 
+               
