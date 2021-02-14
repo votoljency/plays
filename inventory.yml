@@ -29,3 +29,7 @@ all:
     clockworknet:
       hosts:
         client3.ipa.vm:  
+
+    test:
+      hosts:
+        client3.ipa.vm:
