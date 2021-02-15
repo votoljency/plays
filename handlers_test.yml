@@ -26,3 +26,4 @@
   handlers:
   - name: restart my service
     file: path=/var/run/myservice_restart.pending state=touch
+    listen: restart my service
