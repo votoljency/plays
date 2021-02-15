@@ -20,5 +20,5 @@
       - file: path=/var/run/myservice_restart.pending state=absent
     when: myservice_restart.stats.exists
    handlers:
-    - name: restart my service
-      file: path=/var/run/myservice_restart.pending state=touch
+   - name: restart my service
+     file: path=/var/run/myservice_restart.pending state=touch
