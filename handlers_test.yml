@@ -4,7 +4,9 @@
   serial: 1
   tasks:
   - name: 'do something'
-    debug: msg='important job'
+    systemd:
+      name: NetworkManager
+      state: reloaded
     notify:
       - "restart my service"
   post_tasks:
