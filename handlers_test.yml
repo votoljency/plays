@@ -1,5 +1,6 @@
 ---
-- hosts: test
+- name:
+  hosts: test
   serial: 1
   tasks:
   - name: 'do something'
