@@ -1,6 +1,7 @@
 ---
 - name:
   hosts: test
+  become: yes
   serial: 1
   tasks:
   - name: 'do something'
