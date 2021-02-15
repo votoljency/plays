@@ -13,7 +13,7 @@
     register: myservice_restart
   - name: print myservice_restart
     debug:
-      msg: myservice_restart 
+      msg: "{{ myservice_restart }}"
   - name: Restart my service 
     block:
       - service: name=myservice state=restarted
