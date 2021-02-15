@@ -6,7 +6,7 @@
   - name: 'do something'
     debug: msg='important job'
     notify:
-      - restart my service
+      - "restart my service"
   post_tasks:
   - name: check if restart pending
     stat: path=/var/run/myservice_restart.pending
@@ -24,6 +24,6 @@
       - file: path=/var/run/myservice_restart.pending state=absent
     when: myservice_restart.stat.exists
   handlers:
-  - name: restart my service
+  - name: restart-my-service
     file: path=/var/run/myservice_restart.pending state=touch
-    listen: restart my service
+    listen: "restart my service"
