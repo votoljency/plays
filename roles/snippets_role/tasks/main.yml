@@ -8,22 +8,22 @@
     - name: Touch files with an optional mode
       ansible.builtin.file:
         dest: "{{ item.path }}"
-        state: touch
+        state: absent
         mode: "{{ item.mode | default(omit) }}"
       loop:
         - path: /tmp/foo
         - path: /tmp/bar
         - path: /tmp/baz
           mode: "0444"
- #  - name: Give me list combo of two lists
- #    ansible.builtin.debug:
- #      msg: "{{ [1,2,3,4,5] | zip(['a','b','c','d','e','f']) | list }}"
- #  - name: Give me shortest combo of two lists
- #    ansible.builtin.debug:
- #      msg: "{{ [1,2,3] | zip(['a','b','c','d','e','f']) | list }}"
- #  - name: Give me longest combo of three lists , fill with X
- #    ansible.builtin.debug:
- #      msg: "{{ [1,2,3] | zip_longest(['a','b','c','d','e','f'], [21, 22, 23], fillvalue='X') | list }}"    
+    - name: Give me list combo of two lists
+      ansible.builtin.debug:
+        msg: "{{ [1,2,3,4,5] | zip(['a','b','c','d','e','f']) | list }}"
+    - name: Give me shortest combo of two lists
+      ansible.builtin.debug:
+        msg: "{{ [1,2,3] | zip(['a','b','c','d','e','f']) | list }}"
+    - name: Give me longest combo of three lists , fill with X
+      ansible.builtin.debug:
+        msg: "{{ [1,2,3] | zip_longest(['a','b','c','d','e','f'], [21, 22, 23], fillvalue='X') | list }}"    
  #  - name: construct dict
  #    ansible.builtin.debug:
  #      msg: "{{ dict(keys_list | zip(values_list)) }}"
