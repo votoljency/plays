@@ -1,21 +1,5 @@
 ---
-- name: "snippets"
-  hosts: proxy
-  gather_facts: False
-  become: yes
-  remote_user: automation
-  vars:
-    motd_value: "{{ lookup('file', '/etc/motd') }}"
-    keys_list:
-      - one
-      - two
-    values_list:
-      - apple
-      - orange
-    tags:
-      Application: payment
-      Environment: dev  
-  tasks:    
+    
     - name: flatten a list
       ansible.builtin.debug:
         msg: "{{ [3, [4, 2] ] | flatten(levels=2) }}"
