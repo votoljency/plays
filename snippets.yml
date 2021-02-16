@@ -3,23 +3,6 @@
   hosts: proxy
   gather_facts: False
   become: yes
-  remote_user: automation
-  vars:
-    motd_value: "{{ lookup('file', '/etc/motd') }}"
-    keys_list:
-      - one
-      - two
-    values_list:
-      - apple
-      - orange
-    tags:
-      Application: payment
-      Environment: dev  
+  remote_user: automation 
   roles:
     - snippets_role 
-
-
-
-
-
-

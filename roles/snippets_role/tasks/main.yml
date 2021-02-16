@@ -5,16 +5,16 @@
         msg: "{{ [3, [4, 2] ] | flatten(levels=2) }}"
  #      msg: "{{ ansible_mounts | map(attribute='mount') | join(',') }}"
  #      msg: "{{ tags | dict2items }}"
-    - name: Touch files with an optional mode
-      ansible.builtin.file:
-        dest: "{{ item.path }}"
-        state: absent
-        mode: "{{ item.mode | default(omit) }}"
-      loop:
-        - path: /tmp/foo
-        - path: /tmp/bar
-        - path: /tmp/baz
-          mode: "0444"
+#   - name: Touch files with an optional mode
+#     ansible.builtin.file:
+#       dest: "{{ item.path }}"
+#       state: absent
+#       mode: "{{ item.mode | default(omit) }}"
+#     loop:
+#       - path: /tmp/foo
+#       - path: /tmp/bar
+#       - path: /tmp/baz
+#         mode: "0444"
     - name: Give me list combo of two lists
       ansible.builtin.debug:
         msg: "{{ [1,2,3,4,5] | zip(['a','b','c','d','e','f']) | list }}"

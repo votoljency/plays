@@ -1,0 +1,7 @@
+    motd_value: "{{ lookup('file', '/etc/motd') }}"
+    keys_list:
+      - one
+      - two
+    values_list:
+      - apple
+      - orange
