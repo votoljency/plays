@@ -15,7 +15,8 @@
     tags:
       Application: payment
       Environment: dev  
-  roles: snippets_role 
+  roles:
+    - snippets_role 
 
 
 
