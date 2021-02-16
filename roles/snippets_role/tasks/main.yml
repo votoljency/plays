@@ -27,17 +27,7 @@
     - name: construct dict
       ansible.builtin.debug:
         msg: "{{ dict(keys_list | zip(values_list)) }}"
- #  objs:
- #     - { key1: value1, key2: [ value2, value3] }
- #     - { key1: value4, key2: [ value5, value6] } 
- #    - key1: value1
- #      key2:
- #        - value2
- #        - value3
- #    - key1: value4
- #      key2:
- #        - value5
- #        - value6
+
  #vars_files:
  #  - /home/automation/plays/secret.yml
  #  - /home/automation/plays/vars/user_list.yml

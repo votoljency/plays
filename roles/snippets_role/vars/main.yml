@@ -5,3 +5,14 @@
     values_list:
       - apple
       - orange
+    objs:
+      - { key1: value1, key2: [ value2, value3] }
+      - { key1: value4, key2: [ value5, value6] } 
+#     - key1: value1
+#       key2:
+#         - value2
+#         - value3
+#     - key1: value4
+#       key2:
+#         - value5
+#         - value6  
