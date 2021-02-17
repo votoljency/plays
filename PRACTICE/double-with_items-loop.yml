@@ -19,7 +19,7 @@
   - name: Creating Secondary group
     group:
       name: "a{{ item.1 }}"
-      state: present
+      state: absent
     with_subelements:
       - '{{ userslist }}'
       - groups
