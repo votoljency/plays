@@ -1,0 +1,12 @@
+---
+- name: Scheduled tasks
+  hosts: proxy
+  become: yes
+  tasks:
+  - name: creates a root cron job
+    cron:
+      name: date > var/log/time.log
+      minute: 01
+      hour: *
+      user: root
+      job: "date > var/log/time.log"
