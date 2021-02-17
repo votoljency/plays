@@ -26,7 +26,6 @@
   # - /home/automation/plays/vars/user_list.yml
   tasks:
     - include_tasks: inner-users-database.yml
-      debug:
       when: ansible_hostname in outer_item 
       loop: "{{ groups['database'] }}"
       loop_control:
