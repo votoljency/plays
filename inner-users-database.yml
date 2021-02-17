@@ -4,3 +4,4 @@
 
     - name: msg groups
       debug:    
+        msg: "{{ outer_item }}"
