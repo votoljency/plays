@@ -4,4 +4,4 @@
 
     - name: msg groups inner users webservers
       debug:    
-        msg: "{{ outer_item }}"
+        msg: "{{ groups }}"
