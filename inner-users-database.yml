@@ -2,4 +2,5 @@
       loop: "{{users}}"
       when: '"{{item.uid}}" is match("2") and ansible_hostname in outer_item'
 
-    - debug:    
+    - name: msg groups
+      debug:    
