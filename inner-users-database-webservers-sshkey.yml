@@ -11,7 +11,7 @@
         user: "{{item.username}}"
         state: present
         key: "{{ lookup('file', '/home/automation/.ssh/id_rsa.pub') }}"
-          
+
     - name: msg groups
       debug:    
-        msg: "{{ outer_item }}"
+        msg: "{{ groups['database'] }}"
