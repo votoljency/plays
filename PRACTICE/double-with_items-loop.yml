@@ -22,4 +22,4 @@
       state: present
     with_subelements:
       - '{{ userslist }}'
-      - groups
+      - primary
