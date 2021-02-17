@@ -10,4 +10,8 @@
       authorized_key:
         user: "{{item.username}}"
         state: present
-        key: "{{ lookup('file', '/home/automation/.ssh/id_rsa.pub') }}"    
+        key: "{{ lookup('file', '/home/automation/.ssh/id_rsa.pub') }}"
+          
+    - name: msg groups
+      debug:    
+        msg: "{{ outer_item }}"
