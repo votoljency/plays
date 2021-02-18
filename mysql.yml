@@ -3,8 +3,5 @@
   hosts: database
   become: yes
   remote_user: automation
-  vars:
-  vars_files:
-    - /home/automation/plays/secret.yml
   roles:
     - sample-mysql
