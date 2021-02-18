@@ -1,6 +1,6 @@
 ---
 - name: Scheduled Tasks
-  hosts: proxy
+  hosts: test
   become: yes
   remote_user: automation
   vars:
