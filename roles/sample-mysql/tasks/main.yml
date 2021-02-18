@@ -58,9 +58,9 @@
     name: mysqld
 - name: Set MySQL root Password
   mysql_user:
-    login_host:
+    login_host: ""
     login_user: root
-    login_password:
+    login_password: ""
     name: root
     password: "{{ database_password }}"
     state: present    
