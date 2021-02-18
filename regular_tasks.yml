@@ -9,9 +9,9 @@
   tasks:
     - name: install cron
       yum:
-        name: cron
+        name: crond
         state: present
-        
+
     - name: Scheduled Tasks
       cron:
         name: "appends date output to /var/log/time.log"
