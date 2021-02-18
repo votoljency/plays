@@ -3,5 +3,6 @@
   hosts: database
   become: yes
   remote_user: automation
+  vars-files: secret.yml
   roles:
     - sample-mysql
