@@ -1,2 +1,2 @@
-  vars_files:
+secret:
     - /home/automation/plays/secret.yml
