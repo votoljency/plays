@@ -1,4 +1,3 @@
 secret:
     - /home/automation/plays/secret.yml
-
-password: "{{ database_password }}"    
+    
