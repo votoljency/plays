@@ -58,12 +58,12 @@
     name: mysqld
 - name: Set MySQL root Password
   mysql_user:
-  login_host: ‘localhost’
-  login_user: ‘root’
-  login_password: ”
-  name: ‘root’
-  password: ‘{{ database_password }}’
-  state: present    
+    login_host: ‘localhost’
+    login_user: ‘root’
+    login_password: ”
+    name: ‘root’
+    password: ‘{{ database_password }}’
+    state: present    
 - name: Configure MySQL server configuration file
   template: src=my.cnf.j2 dest=/etc/my.cnf
   tags: mysql
