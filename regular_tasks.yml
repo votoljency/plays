@@ -9,7 +9,7 @@
   tasks:
     - name: install cron
       yum:
-        name: crond
+        name: cronie
         state: present
 
     - name: Scheduled Tasks
