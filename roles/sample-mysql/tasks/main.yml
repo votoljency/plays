@@ -61,7 +61,7 @@
     login_host: ""
     login_user: root
     login_password: ""
-    check_implicit_admin: yes
+    check_implicit_admin: true
     name: root
     password: "{{ database_password }}"
     state: present    
