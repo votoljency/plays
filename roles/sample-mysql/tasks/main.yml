@@ -58,6 +58,7 @@
     name: mysqld
 - name: Set MySQL root Password
   mysql_user:
+    check_implicit_admin: yes
     login_host: ""
     login_user: root
     login_password: ""
