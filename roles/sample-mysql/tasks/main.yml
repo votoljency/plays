@@ -62,9 +62,8 @@
     login_host: ""
     login_user: root
     login_password: ""
-    user: automation
-#    name: root
-#    password: "{{ database_password }}"
+    user: root
+    password: ""
   #  state: present    
 - name: Configure MySQL server configuration file
   template: src=my.cnf.j2 dest=/etc/my.cnf
