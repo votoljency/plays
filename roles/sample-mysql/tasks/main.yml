@@ -71,7 +71,7 @@
 - name: Set MySQL root Password
   mysql_user:
     check_implicit_admin: true    
-    login_host: 
+#    login_host: 
 #    login_unix_socket: /var/run/mysqld/mysqld.sock 
 #    login_password: 
     user: root
