@@ -66,7 +66,7 @@
   mysql_user:
     check_implicit_admin: true    
     login_host: ""
-    login_user: root
+    login_user: ""
     login_password: ""
     user: ""
     password: ""
