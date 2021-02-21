@@ -56,6 +56,12 @@
     enabled: yes
     state: started
     name: mysqld
+
+- name: Create Mysql configuration file
+  template: src=my.cnf.j2 dest=/etc/my.cnf
+  notify:
+  - restart mysqld
+
 - name: Set MySQL root Password
   mysql_user:
     check_implicit_admin: true    
