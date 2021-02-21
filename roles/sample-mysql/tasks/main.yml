@@ -62,7 +62,7 @@
     login_host: ""
     login_user: root
     login_password: ""
-    user: root
+    user: automation
 #    name: root
 #    password: "{{ database_password }}"
   #  state: present    
