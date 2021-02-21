@@ -65,10 +65,10 @@
 - name: Set MySQL root Password
   mysql_user:
     check_implicit_admin: true    
-    login_host: ""
-    login_user: ""
-    login_password: ""
-    user: "root"
+    login_host: 
+    login_user: 
+    login_password: 
+    user: root
     password: "{{ database_password }}"
   #  state: present    
 - name: Configure MySQL server configuration file
