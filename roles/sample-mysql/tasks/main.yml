@@ -36,7 +36,7 @@
     state: installed
 - name: pip install PyMySQL
   pip:
-    name: PyMySQL    
+    name: python3-PyMySQL    
 - name: install the latest version of firewalld
   yum:
     name: firewalld
