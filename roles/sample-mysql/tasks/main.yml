@@ -62,7 +62,13 @@
   notify:
   - restart mysqld
 
-- name: Set MySQL root Password
+- name: Touch a file, using symbolic modes to set the permissions (equivalent to 0644)
+  file:
+    path: ~/.my.cnf
+    state: touch
+    mode: u=rw,g=r,o=r
+
+  - name: Set MySQL root Password
   mysql_user:
     check_implicit_admin: true    
     login_host: 
@@ -71,7 +77,8 @@
     user: root
     password: "{{ database_password }}"
   #  state: present    
-- name: Configure MySQL server configuration file
+
+  - name: Configure MySQL server configuration file
   template: src=my.cnf.j2 dest=/etc/my.cnf
   tags: mysql
   notify: restart_mysql
