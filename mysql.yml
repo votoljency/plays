@@ -2,7 +2,7 @@
 - name: Create and work with sample-mysql role
   hosts: database
   become: yes
-#  remote_user: automation
+  remote_user: automation
   vars_files: secret.yml
   roles:
     - sample-mysql
