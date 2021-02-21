@@ -74,9 +74,9 @@
     login_host: 
     login_unix_socket: /var/lib/mysql/mysql.sock
     login_password: 
-    name: bob
-#    password: "{{ database_password }}"
-  #  state: present    
+    name: root
+    password: "{{ database_password }}"
+    state: present    
 
 - name: Configure MySQL server configuration file
   template: src=my.cnf.j2 dest=/etc/my.cnf
