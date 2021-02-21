@@ -72,7 +72,7 @@
   community.mysql.mysql_user:
     check_implicit_admin: true    
     login_host: 
-    login_unix_socket: var/lib/mysql/mysql.sock
+    login_unix_socket: /var/lib/mysql/mysql.sock
     login_password: 
     name: bob
 #    password: "{{ database_password }}"
