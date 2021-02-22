@@ -62,11 +62,11 @@
   notify:
   - restart mysqld
 
-#- name: Touch a file, using symbolic modes to set the permissions (equivalent to 0644)
-#  file:
-#    path: ~/.my.cnf
-#    state: touch
-#    mode: u=rw,g=r,o=r
+- name: Touch a file, using symbolic modes to set the permissions (equivalent to 0644)
+  template: src=my_root_auth.cnf.j2 dest=/root/.my.cnf
+  #  path: ~/.my.cnf
+  #  tate: touch
+  #  mode: u=rw,g=r,o=r
 
 - name: Set MySQL root Password
   community.mysql.mysql_user:
