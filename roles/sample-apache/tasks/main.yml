@@ -2,7 +2,7 @@
   yum:
     name: [httpd, mod_ssl, php, firewalld]
     state: installed
-    
+
 - name: Manage firewalld service
   systemd:
     name: firewalld
@@ -17,4 +17,10 @@
   with_items:
      - http
      - https
+
+- name: Apache service is running and enabled on boot
+  systemd:
+    name: httpd
+    state: started
+    enabled: yes 
      
