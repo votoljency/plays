@@ -5,6 +5,6 @@
   remote_user: automation
   vars:
   vars_files:
-    - /home/automation/plays/secret.yml
+    - secret.yml
   roles:
     - sample-apache
