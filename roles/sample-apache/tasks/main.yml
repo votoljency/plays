@@ -23,4 +23,8 @@
     name: httpd
     state: started
     enabled: yes 
-     
+
+- name: create the file /var/www/html/index.html
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
