@@ -18,10 +18,10 @@ haproxy_backend_httpchk: 'HEAD / HTTP/1.1\r\nHost:localhost'
 
 # List of backend servers.
 haproxy_backend_servers: []
-  - name: client2.ipa.vm
-    address: 192.168.128.4:80
-  - name: client3.ipa.vm
-    address: 192.168.129.6:80
+- name: client2.ipa.vm
+  address: 192.168.128.4:80
+- name: client3.ipa.vm
+  address: 192.168.129.6:80
 
 # Extra global vars (see README for example usage).
 haproxy_global_vars: []
