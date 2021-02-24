@@ -6,7 +6,8 @@ haproxy_group: haproxy
 
 # Frontend settings.
 haproxy_frontend_name: 'hafrontend'
-haproxy_frontend_bind_address: '*'
+#haproxy_frontend_bind_address: '*'
+haproxy_frontend_bind_address: 192.168.129.5
 haproxy_frontend_port: 80
 haproxy_frontend_mode: 'http'
 
