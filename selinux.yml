@@ -12,13 +12,13 @@
       - { name: 'httpd_can_network_connect', state: 'on', persistent: 'yes' }
     #selinux_fcontexts:
     #  - { target: '/tmp/test_dir(/.*)?', setype: 'user_home_dir_t', ftype: 'd' }
-    selinux_restore_dirs:
+    #selinux_restore_dirs:
     #  - /tmp/test_dir
-    selinux_ports:
+    #selinux_ports:
     #  - { ports: '22100', proto: 'tcp', setype: 'ssh_port_t', state: 'present' }
-    selinux_logins:
+    #selinux_logins:
     #  - { login: 'sar-user', seuser: 'staff_u', serange: 's0-s0:c0.c1023', state: 'present' }
-    selinux_modules:
+    #selinux_modules:
     #  - { path: "localpolicy.cil", priority: "300", state: "enabled" }
     #  - { name: "unconfineduser", priority: "100", state: "disabled" }
     #  - { name: "temporarypolicy", priority: "400", state: "absent" }
