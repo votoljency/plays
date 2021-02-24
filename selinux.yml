@@ -12,7 +12,7 @@
       - { name: 'httpd_can_network_connect', state: 'on', persistent: 'yes' }
     selinux_fcontexts:
     #  - { target: '/tmp/test_dir(/.*)?', setype: 'user_home_dir_t', ftype: 'd' }
-      - { target: '', setype: '', ftype: '' }
+      - { target: '', setype: '', ftype: 'd' }
     selinux_restore_dirs:
     #  - /tmp/test_dir
     selinux_ports:
