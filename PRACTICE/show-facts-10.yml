@@ -7,4 +7,4 @@
   tasks:
     - name: facts
       debug:
-        msg: "{{ ansible_default_ipv4.gateway }}"
+        msg: "{{ ansible_default_ipv4 }}"
