@@ -7,4 +7,4 @@
   tasks:
     - name: facts
       debug:
-        msg: "{{ ansible_version.full }}"
+        msg: "{{ ansible_python }}"
