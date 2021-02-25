@@ -1,8 +1,8 @@
 ---
 - name: list facts
   become: yes
-  remote-user: automation
+  remote_user: automation
   hosts: proxy
   tasks:
   - name: facts
-    gather-facts: yes
+    gather_facts: yes
