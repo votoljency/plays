@@ -7,4 +7,4 @@
   tasks:
     - name: facts
       debug:
-        var: hostvars
+        var: hostvars[client1.ipa.vm]
