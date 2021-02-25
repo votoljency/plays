@@ -7,4 +7,4 @@
   tasks:
     - name: facts
       debug:
-        var: "{{ ['client1.ipa.vm'][ansible_all_ipv4_addresses] }}"
+        var: "{{ ansible_facts['client1.ipa.vm'][ansible_all_ipv4_addresses] }}"
