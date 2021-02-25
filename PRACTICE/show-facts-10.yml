@@ -7,4 +7,4 @@
   tasks:
     - name: facts
       debug:
-        msg: "{{ [client1.ipa.vm[ansible_version]] }}"
+        msg: "{{ [client2.ipa.vm[ansible_version]] }}"
