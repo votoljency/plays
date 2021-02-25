@@ -3,6 +3,7 @@
   become: yes
   remote_user: automation
   hosts: proxy
+  gather_facts: yes
   tasks:
     - name: facts
-    #gather_facts: yes
+    
