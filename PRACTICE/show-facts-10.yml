@@ -4,5 +4,5 @@
   remote_user: automation
   hosts: proxy
   tasks:
-    name: facts
-    gather_facts: yes
+    - name: facts
+    #gather_facts: yes
