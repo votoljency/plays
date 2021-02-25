@@ -6,4 +6,4 @@
   gather_facts: yes
   tasks:
     - name: facts
-      debug:
+      debug: hostvars
