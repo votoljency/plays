@@ -3,8 +3,8 @@
   become: yes
   remote_user: automation
   hosts: proxy
-  gather_facts: no
+  gather_facts: yes
   tasks:
     - name: facts
       debug:
-        msg: "{{ [client2.ipa.vm[ansible_version]] }}"
+        msg: "{{ [client1.ipa.vm[ansible_version]] }}"
