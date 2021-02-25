@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: BSD-3-Clause
+---
+- name: Test executing the role with default parameters
+  hosts: all
+  roles:
+    - linux-system-roles.network
+  tasks:
+    - name: Test warning and info logs
+      assert:
+        that:
+          - "'warnings' not in __network_connections_result"
+        msg: "There are warnings"

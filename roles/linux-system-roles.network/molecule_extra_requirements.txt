@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: MIT
+
+# Write extra requirements for running molecule here:
+jmespath
+ansible-lint==4.2.0
