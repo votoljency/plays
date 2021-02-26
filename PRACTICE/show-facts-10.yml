@@ -3,7 +3,7 @@
   become: yes
   remote_user: automation
   hosts: all
-  gather_facts: no
+  gather_facts: yes
   tasks:
     - name: facts
       debug:
