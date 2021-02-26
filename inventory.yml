@@ -1,6 +1,7 @@
 all:
   hosts:
     master.ipa.vm:
+      ansible_connection=local
   children:
     proxy:
       hosts:
