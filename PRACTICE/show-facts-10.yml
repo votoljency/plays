@@ -23,4 +23,4 @@
 
     - name: 30 facts variation
       debug:
-        msg: "{{ [client1.ipa.vm] }}"  
+        msg: "{{ [client1.ipa.vm] }}" 
