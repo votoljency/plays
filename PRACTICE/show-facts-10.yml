@@ -28,3 +28,7 @@
   #WRONG  - name: 40 facts variation
   #WRONG    debug:
   #WRONG      msg: "{{ client1.ipa.vm }}"        
+
+    - name: checkout setup
+      setup:
+        filter: ansible_*_mb
