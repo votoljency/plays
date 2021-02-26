@@ -1,3 +1,9 @@
 ---
 - name: install software on ansible nodes and ansible control node
-  hosts:
+  hosts: all
+  become: yes
+  tasks:
+    - name: tree
+      dnf:
+      name: tree
+      state: present
