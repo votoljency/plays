@@ -35,4 +35,4 @@
 
     - name: display setup variables
       debug:
-        msg: "{{ memory_mb }}"        
+        msg: "{{ [ansible_facts][memory_mb] }}"        
