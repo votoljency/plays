@@ -33,10 +33,14 @@
       setup:
         filter: ansible_*_mb
 
-    - name: display setup variables
-      debug:
-        msg: "{{ [ansible_facts.memory_mb] }}"
+  #10 display ... works  - name: display setup variables
+  #10 display ... works    debug:
+  #10 display ... works      msg: "{{ [ansible_facts.memory_mb] }}"
 
     - name: 10 display setup variables
       debug:
-        msg: "{{ ansible_facts.memory_mb }}"                
+        msg: "{{ ansible_facts.memory_mb }}"
+
+    - name: 20 display setup variables
+      debug:
+        msg: "{{ ansible_facts.memory_mb.real.total }}"                        
