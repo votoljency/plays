@@ -5,5 +5,5 @@
   tasks:
     - name: tree
       dnf:
-      name: tree
-      state: present
+        name: tree
+        state: present
