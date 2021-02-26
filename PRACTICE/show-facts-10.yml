@@ -32,3 +32,7 @@
     - name: checkout setup
       setup:
         filter: ansible_*_mb
+
+    - name: display setup variables
+      debug:
+        msg: "{{ memory_mb }}"        
