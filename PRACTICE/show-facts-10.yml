@@ -12,3 +12,7 @@
     - name: facts variation
       debug:
         msg: "{{ [ansible_version] }}"        
+
+    - name: 10 facts variation
+      debug:
+        msg: "{{ [ansible_version.string] }}"                
