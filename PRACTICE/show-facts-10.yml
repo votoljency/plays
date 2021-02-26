@@ -17,6 +17,10 @@
       debug:
         msg: "{{ [ansible_version.string] }}"
 
-    - name: 20 facts variation
+  #WRONG  - name: 20 facts variation
+  #WRONG    debug:
+  #WRONG      msg: "{{ [ansible_version][string] }}"
+
+    - name: 30 facts variation
       debug:
-        msg: "{{ [ansible_version][string] }}"
+        msg: "{{ [client1.ipa.vm] }}"  
