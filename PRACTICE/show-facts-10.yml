@@ -19,4 +19,4 @@
 
     - name: 20 facts variation
       debug:
-        msg: "{{ [ansible_version[string]] }}"
+        msg: "{{ [ansible_version][string] }}"
