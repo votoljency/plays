@@ -2,7 +2,7 @@
 - name: list facts
   become: yes
   remote_user: automation
-  hosts: proxy
+  hosts: webservers
   gather_facts: no
   tasks:
     - name: facts
