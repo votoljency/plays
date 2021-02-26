@@ -29,9 +29,9 @@
   #WRONG    debug:
   #WRONG      msg: "{{ client1.ipa.vm }}"        
 
-    - name: checkout setup
-      setup:
-        filter: ansible_*_mb
+  #  - name: checkout setup
+  #    setup:
+  #      filter: ansible_*_mb
 
   #10 display ... works  - name: display setup variables
   #10 display ... works    debug:
