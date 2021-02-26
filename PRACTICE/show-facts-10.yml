@@ -8,3 +8,7 @@
     - name: facts
       debug:
         msg: "{{ [client1.ipa.vm[ansible_version]] }}"
+
+    - name: facts variation
+      debug:
+        msg: "{{ [ansible_version] }}"        
