@@ -25,6 +25,6 @@
       debug:
         msg: "{{ [client1.ipa.vm] }}" 
 
-    - name: 40 facts variation
-      debug:
-        msg: "{{ client1.ipa.vm }}"        
+  #WRONG  - name: 40 facts variation
+  #WRONG    debug:
+  #WRONG      msg: "{{ client1.ipa.vm }}"        
