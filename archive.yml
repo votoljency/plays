@@ -1,0 +1,21 @@
+- name: Use archiving
+  hosts: database
+  become: yes
+  remote_user: automation
+  gather_facts: no
+  tasks:
+    - name: Create file with content
+      copy:
+        content: 'dev,test,qa,prod'
+        dest: /mnt/mysql_backups/database_list.txt
+    
+    - name: ensure gzip is installed
+      yum:
+        name: gzip
+        state: latest
+    
+    - name: archive file
+      archive:
+        path: /mnt/mysql_backups/database_list.txt
+        dest: /mnt/mysql_backups/archive.gz
+        format: gz
