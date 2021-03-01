@@ -43,4 +43,4 @@
 
     - name: 20 display setup variables
       debug:
-        msg: "{{ ansible_facts.memory_mb.real.total }}"                        
+        msg: "{{ ansible_facts }}"                        
