@@ -43,5 +43,6 @@
 
     - name: 20 display setup variables
       debug:
-        msg: "User {{ item.key }} is {{ item.value.memtotal_mb }}"
-      loop: "{{ lookup('dict', ansible_facts) }}"                       
+        msg: "User"
+      loop: "{{ lookup('dict', ansible_facts) }}"
+      when: "'memtotal_mb' in item.key"                       
