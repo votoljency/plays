@@ -5,9 +5,9 @@
   tasks:
     - name: Show extracted list of keys from a list of dictionaries
       ansible.builtin.debug:
-        msg: "{{ chains | map('extract', chains_config) | map(attribute='configs') | flatten | map(attribute='type') | flatten }}"
+        msg: "{{ chainss | map('extract', chains_config) | map(attribute='configs') | flatten | map(attribute='type') | flatten }}"
       vars:
-        chains: [1, 2]
+        chainss: [1, 2]
         chains_config:
             1:
                 foo: bar
