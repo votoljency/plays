@@ -2,17 +2,17 @@
   remote_user: automation
   become: yes
   hosts: proxy
-  gathering_facts: no
+  gather_facts: no
   tasks:
     - name: Show extracted list of keys from a list of dictionaries
       ansible.builtin.debug:
-        msg: "{{ chainss | map('extract', chains_configg) | map(attribute='configs') | flatten | map(attribute='type') | flatten }}"
+        msg: "{{ chainss | map('extract', chains_configg) | map(attribute='configss') | flatten | map(attribute='type') | flatten }}"
       vars:
         chainss: [1, 2, 3]
         chains_configg:
             1:
                 foo: bar
-                configs:
+                configss:
                     - type: routed
                       version: 0.1
                     - type: bridged
@@ -23,14 +23,14 @@
                       version: 0.2                      
             2:
                 foo: baz
-                configs:
+                configss:
                     - type: routed
                       version: 1.0
                     - type: bridged
                       version: 1.1
             3:
                 foo: baz
-                configs:
+                configss:
                     - type: routed
                       version: 1.0
                     - type: bridged
