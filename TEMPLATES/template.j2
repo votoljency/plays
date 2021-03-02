@@ -1,0 +1,41 @@
+# {{ ansible_managed }}
+{# vim: syntax=jinja2 sr et ts=4 sw=4 sts=4: #}
+
+main     = {% for user in users %}{% if "main"     in user.groups %}{{ user.name }}, {% endif %}{% endfor %}
+
+admin    = {% for user in users %}{% if "admin"    in user.groups %}{{ user.name }}, {% endif %}{% endfor %}
+
+readonly = {% for user in users %}{% if "readonly" in user.groups %}{{ user.name }}, {% endif %}{% endfor %}
+
+trolls   = {% for user in users %}{% if "trolls"   in user.groups %}{{ user.name }}, {% endif %}{% endfor %}
+
+
+And now for your /etc/passwd file (needs more details):
+{% for user in users %}
+{{ user.name }}::::{{ user.fullname}}::
+{% endfor %}
+
+   {# make a list of all groups (including users, who are usually their own
+      group on Linux).
+
+      The dashes inside the percent signs in the statements are to control
+      the whitespace: we would otherwise have a bunch of empty lines.
+   #}
+   {%- set groups = [] -%}
+   {%- for user in users -%}
+       {{ groups.append( user.name ) }}
+       {%- for group in user.groups -%}
+           {%- if group not in groups -%}
+               {{ groups.append( group ) }}
+           {%- endif -%}
+       {%- endfor -%}
+   {%- endfor -%}
+
+
+   All groups: {{ groups|join(',') }}
+
+   And for /etc/group (again, more details needed):
+   {% for group in groups %}
+   {{ group }}:x::{% for user in users %}{% if group in user.groups %}{{ user.name }},{% endif %}{% endfor %}
+
+   {% endfor %}

@@ -1,0 +1,35 @@
+---
+# filename: groups.yaml
+
+- name: lists
+  hosts: localhost
+  connection: local
+  vars:
+    # you don't have to align this stuff at all: I like it this way
+    # because it's more readable (but it's a pain to maintain when you
+    # add accounts)
+    #
+    # I also apologize that I didn't mention [] as the Nth way of creating
+    # lists in Ansible in the blog entry on lists ...
+    users:
+        - { name: giles,      groups: ['readonly', 'admin'], fullname: "Giles Orr"      }
+        - { name: dilbert,    groups: ['main', 'admin'],     fullname: "Dilbert"        }
+        - { name: jenkins,    groups: ['readonly'],          fullname: "Butler Jenkins" }
+        - { name: dogbert,    groups: ['main', 'trolls'],    fullname: "Dogbert"        }
+        - { name: deploy,     groups: ['readonly'],          fullname: "Deploy Account" }
+
+  tasks:
+    - name: Print users (full object)
+      debug:
+        msg: "{{ item }}"
+      loop: "{{ users }}"
+
+    - name: Print users
+      debug:
+        msg: "User {{ item.name }} has {{ item.groups }} perms"
+      loop: "{{ users }}"
+
+    - name: template with the dictionary
+      template:
+        src=template.j2
+        dest=template.txt
