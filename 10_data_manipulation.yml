@@ -34,4 +34,8 @@
                     - typee: routed
                       version: 1.0
                     - typee: bridged
-                      version: 1.1                      
+                      version: 1.1
+
+    - name: Retrieve the list of home directories
+      ansible.builtin.command: ls /home
+      register: home_dirs                                        
