@@ -16,6 +16,10 @@
                       version: 0.1
                     - type: bridged
                       version: 0.2
+                    - type: routedd
+                      version: 0.1
+                    - type: bridgedd
+                      version: 0.2                      
             2:
                 foo: baz
                 configs:
