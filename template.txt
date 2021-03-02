@@ -1,0 +1,27 @@
+# Ansible managed
+
+main     = dilbert, dogbert, 
+admin    = giles, dilbert, 
+readonly = giles, jenkins, deploy, 
+trolls   = dogbert, 
+
+And now for your /etc/passwd file (needs more details):
+giles::::Giles Orr::
+dilbert::::Dilbert::
+jenkins::::Butler Jenkins::
+dogbert::::Dogbert::
+deploy::::Deploy Account::
+
+   All groups: giles,readonly,admin,dilbert,main,jenkins,dogbert,trolls,deploy
+
+   And for /etc/group (again, more details needed):
+      giles:x::
+      readonly:x::giles,jenkins,deploy,
+      admin:x::giles,dilbert,
+      dilbert:x::
+      main:x::dilbert,dogbert,
+      jenkins:x::
+      dogbert:x::
+      trolls:x::dogbert,
+      deploy:x::
+   
