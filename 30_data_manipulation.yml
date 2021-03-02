@@ -7,7 +7,7 @@
     - name: Show extracted list of keys from a list of dictionaries
       ansible.builtin.debug:
         #msg: "{{ chainss | map('extract', chains_configg) | map(attribute='configss') | flatten | map(attribute='typee') | flatten }}"
-        msg: "{{ chainss | flatten }}"
+        msg: "{{ chainss | map('extract', chains_configg) | map(attribute='configss') | map(attribute='typee') | flatten }}"
       vars:
         chainss: [A, 2, 3]
         chains_configg:
@@ -37,6 +37,4 @@
                       version: 1.0
                     - typee: bridged
                       version: 1.1
-    - name: Try to print some variables
-      ansible.builtin.debug:
-        msg: "{{ chainss.A.chains_configg.configss }}"             
+            
