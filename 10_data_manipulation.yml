@@ -2,6 +2,7 @@
   remote_user: automation
   become: yes
   hosts: proxy
+  gathering_facts: no
   tasks:
     - name: Show extracted list of keys from a list of dictionaries
       ansible.builtin.debug:
