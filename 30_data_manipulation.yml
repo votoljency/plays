@@ -38,4 +38,4 @@
                       version: 1.1
     - name: Try to print some variables
       ansible.builtin.debug:
-        msg: "{{ chainss.chains_configg.A.configss }}"             
+        msg: "{{ chainss.A.chains_configg.configss }}"             
