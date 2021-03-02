@@ -8,7 +8,7 @@
       ansible.builtin.debug:
         msg: "{{ chainss | map('extract', chains_configg) | map(attribute='configss') | flatten | map(attribute='typee') | flatten }}"
       vars:
-        chainss: [A, 2, 3]
+        chainss: [1, 2, 3]
         chains_configg:
             A:
                 foo: bar
