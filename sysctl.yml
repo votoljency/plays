@@ -15,4 +15,9 @@
       name: vm.swappiness
       value: '60'
       state: present
-    when: ansible_facts.memory_mb.real.total  is greaterthan 1975
+    when: ansible_facts.memory_mb.real.total  is greaterthan 2048
+
+  - name: If a server has less than 2048MB of RAM
+    debug:
+      msg: 'Server memory less than 2048MB'
+    when: ansible_facts.memory_mb.real.total  is lessthan 2048  
