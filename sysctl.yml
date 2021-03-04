@@ -5,6 +5,11 @@
   become: yes
   remote_user: automation
   tasks:
+
+  - name: 10 display setup variables
+    debug:
+      msg: "{{ ansible_facts.memory_mb.real.total }}"
+
   - name: Set vm.swappiness to 5 in /etc/sysctl.conf
     sysctl:
       name: vm.swappiness
