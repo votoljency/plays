@@ -28,19 +28,19 @@
       ansible.builtin.debug:
         msg: "{{ dict(keys_list | zip(values_list)) }}"
 
- #vars_files:
- #  - /home/automation/plays/secret.yml
- #  - /home/automation/plays/vars/user_list.yml
- #tasks:
- #  - name: Give me list combo of two lists
- #ansible.builtin.debug:
- #msg: "{{ [1,2,3,4,5] | zip(['a','b','c','d','e','f']) | list }}"
- # - name: create directories
- #   file: 
- #     path: "{{ item.key1 }}"
- #     state: directory
- #   with_items:
- #     - "{{ objs}}"
+#vars_files:
+#  - /home/automation/plays/secret.yml
+#  - /home/automation/plays/vars/user_list.yml
+#tasks:
+#  - name: Give me list combo of two lists
+#ansible.builtin.debug:
+#msg: "{{ [1,2,3,4,5] | zip(['a','b','c','d','e','f']) | list }}"
+# - name: create directories
+#   file: 
+#     path: "{{ item.key1 }}"
+#     state: directory
+#   with_items:
+#     - "{{ objs}}"
 #        - { key1: value1, key2: [ value2, value3] }
 #        - { key1: value4, key2: [ value5, value6] }
 #        - key1: value1
@@ -61,8 +61,8 @@
 #      loop_control:
 #        loop_var: repo
 #
-
-
+#
+#
 # - name: Count our fruit
 #  hosts: webservers
 #   tasks:
