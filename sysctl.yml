@@ -1,6 +1,6 @@
 ---
 - name: Use Conditionals to Control Play Execution
-  hosts: proxy
+  hosts: all
   gather_facts: yes
   become: yes
   remote_user: automation
