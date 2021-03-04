@@ -8,6 +8,6 @@
   - name: Set vm.swappiness to 5 in /etc/sysctl.conf
     sysctl:
       name: vm.swappiness
-      value: '5'
+      value: '10'
       state: present
-      when: "{{ ansible_facts.memory_mb.real.total }}" is gt 2048MB
+      when: ansible_facts.memory_mb.real.total is gt 2048MB
