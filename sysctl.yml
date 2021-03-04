@@ -13,6 +13,6 @@
   - name: Set vm.swappiness to 59 in /etc/sysctl.conf
     sysctl:
       name: vm.swappiness
-      value: '59'
+      value: '60'
       state: present
     when: ansible_facts.memory_mb.real.total  is greaterthan 1975
