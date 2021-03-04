@@ -10,4 +10,4 @@
       name: vm.swappiness
       value: '10'
       state: present
-    when: "{{ ansible_facts.memory_mb.real.total }}" > 2048
+    when: "{{ ansible_facts.memory_mb.real.total }}" is > 2048
