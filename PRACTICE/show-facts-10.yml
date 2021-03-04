@@ -41,8 +41,13 @@
       debug:
         msg: "{{ ansible_facts.memory_mb }}"
 
-    - name: 20 display setup variables
+    - name: Display all variables/facts known for a host
       debug:
-        msg: "User"
-      loop: "{{ lookup('dict', ansible_facts) }}"
-      when: "'memtotal_mb' in item.key"                       
+        var: hostvars[inventory_hostname]
+        verbosity: 4
+
+  #  - name: 20 display setup variables
+  #    debug:
+  #      msg: "User"
+  #    loop: "{{ lookup('dict', ansible_facts) }}"
+  #    when: "'memtotal_mb' in item.key"                       
