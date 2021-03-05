@@ -1,0 +1,17 @@
+---
+- name: custom fact
+  hosts: proxy
+  become: yes
+  remote_user: automation
+  tasks:
+    
+    - name: "Create custom fact directory"
+      file:
+        path: "/etc/ansible/facts.d"
+        state: "directory"
+    
+    - name: "Insert custom fact file"
+      copy:
+        src: /home/automation/plays
+        dest: /etc/ansible/facts.d/custom.fact
+        mode: 0755
