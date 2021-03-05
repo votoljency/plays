@@ -7,7 +7,7 @@
   tasks:
     - name: facts
       debug:
-        msg: "{{ [client1.ipa.vm[ansible_version]] }}"
+        msg: "{{ ansible_local[custom][date] }}"
 
     - name: facts variation
       debug:
