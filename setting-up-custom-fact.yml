@@ -12,6 +12,6 @@
     
     - name: "Insert custom fact file"
       copy:
-        src: /home/automation/plays
+        src: /home/automation/plays/custom-fact.sh
         dest: /etc/ansible/facts.d/custom.fact
         mode: 0755
