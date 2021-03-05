@@ -2,7 +2,7 @@
 - name: list facts
   become: yes
   remote_user: automation
-  hosts: all
+  hosts: proxy
   gather_facts: yes
   tasks:
     - name: facts
@@ -39,7 +39,7 @@
 
     - name: 10 display setup variables
       debug:
-        msg: "{{ ansible_facts.memory_mb.real.total }}"
+        msg: "{{ hostvars[client1.ipa.vm][ansible_facts][memory_mb][real][total] }}"
 
     - name: Display all variables/facts known for a host
       debug:
