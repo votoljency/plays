@@ -11,7 +11,7 @@
   
     - name: facts
       debug:
-        msg: "{{ ansible_local[custom][date] }}"
+        msg: "{{ ansible_local['custom']['date'] }}"
 
     - name: facts variation
       debug:
