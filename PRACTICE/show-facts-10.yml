@@ -37,9 +37,9 @@
   #10 display ... works    debug:
   #10 display ... works      msg: "{{ [ansible_facts.memory_mb] }}"
 
-    - name: 10 display setup variables
-      debug:
-        msg: "{{ hostvars[inventory_hostname][ansible_facts][memory_mb][real][total] }}"
+  #  - name: 10 display setup variables
+  #    debug:
+  #      msg: "{{ hostvars[inventory_hostname][ansible_facts][memory_mb][real][total] }}"
 
     - name: Display all variables/facts known for a host
       debug:
