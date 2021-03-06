@@ -11,7 +11,7 @@
 
     - name: facts
       debug:
-        msg: "{{ ansible_local['custom']['sample-exam'] }}"
+        msg: "{{ ansible_local['custom']['sample-exam']['server_role'] }}"
 
     - name: facts variation
       debug:
