@@ -9,9 +9,9 @@
   #    setup:
   #      filter: ansible_local
   
-    - name: facts
-      debug:
-        msg: "{{ ansible_local['custom']['date'] }}"
+  #  - name: facts
+  #    debug:
+  #      msg: "{{ ansible_local['custom']['date'] }}"
 
     - name: facts variation
       debug:
