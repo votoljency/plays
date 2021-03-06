@@ -48,7 +48,7 @@
     - name: Display all variables/facts known for a host
       debug:
         var: hostvars[host]['inventory_hostname']
-        verbosity: 4
+        verbosity: 1
 
   #  - name: 20 display setup variables
   #    debug:
