@@ -1,8 +1,8 @@
 ---
 - name: Server Information Summary
   hosts: proxy
-  tasks:
-   - name: Create server-info.txt using Jinja2
-     template:
-       src: info.j2
-       dest: /tmp/server-info.txt
+  become: yes
+  remote_user: automation
+  gather_facts: no
+  roles:
+    - server-info
