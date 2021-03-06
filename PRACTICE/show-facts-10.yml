@@ -43,7 +43,7 @@
 
     - name: 10 display setup variables
       debug:
-        msg: "{{ [inventory_hostname][ansible_facts][memory_mb][real]['total'] }}"
+        msg: "{{ ansible_facts['memory_mb']['real']['total'] }}"
 
     - name: Display all variables/facts known for a host
       debug:
