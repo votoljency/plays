@@ -5,13 +5,13 @@
   hosts: proxy
   gather_facts: yes
   tasks:
-  #  - name: custom fact
-  #    setup:
-  #      filter: ansible_local
-  
-  #  - name: facts
-  #    debug:
-  #      msg: "{{ ansible_local['custom']['date'] }}"
+    - name: custom fact
+      setup:
+        filter: ansible_local
+
+    - name: facts
+      debug:
+        msg: "{{ ansible_local['custom']['date'] }}"
 
     - name: facts variation
       debug:
