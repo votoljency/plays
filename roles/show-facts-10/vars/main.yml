@@ -1,3 +1,4 @@
 ---
      single_list: [ 'a', 'b', 'c', 'd' ]
 #     mydict: "{{ dict(single_list) | slice(2) | list }}"
+     mydict: "{{ dict(single_list) | list }}"
