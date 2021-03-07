@@ -8,7 +8,7 @@
      - b
      - c
 
-   myvarnames: "{{ q('varnames', '^my') }}"
+   myvarnames: "{{ q('xvarnames', '^my') }}"
 
    chainss: [A, 2, 3]
    chains_configg:
