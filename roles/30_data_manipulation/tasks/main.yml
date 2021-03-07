@@ -1,8 +1,4 @@
 ---
-- name: Show the uptime in a certain format
-  ansible.builtin.debug:
-   msg: Timedelta {{ now() - now().fromtimestamp(now(fmt='%s') | int - ansible_uptime_seconds) }}
-
 - name: Using ‘vars’ to define dictionary from a set of lists without needing a task
   debug:
     var: myvarnames
