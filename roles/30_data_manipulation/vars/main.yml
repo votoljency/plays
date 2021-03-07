@@ -8,7 +8,7 @@
      - b
      - c
 
-   myvarnames: "{{ q('xvarnames', '^my') }}"
+   myvarnames: "{{ q('varnames', '^my') }}"
 
    chainss: [A, 2, 3]
    chains_configg:
@@ -45,6 +45,6 @@
    mydict_1: "{{ dict(list_of_pairs) }}"
 #   single_list: [[[['a', 'b', 'c', 'd']]]]
 #   single_list: [ ['a', 'b'], ['c', 'd'] ]
-#   mydict: "{{ dict(single_list) | slice(2) | list }}"
-#   mydict: "{{ dict(single_list) | slice(2) }}"        
+   mydict: "{{ dict(single_list) | slice(2) | list }}"
+   mydict: "{{ dict(single_list) | slice(2) }}"        
             
