@@ -3,4 +3,5 @@
   become: yes
   hosts: proxy
   gather_facts: no
-  roles: 30_data_manipulation
+  roles: 
+    - 30_data_manipulation
