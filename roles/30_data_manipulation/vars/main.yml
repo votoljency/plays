@@ -9,6 +9,7 @@
      - c
 
    myvarnames: "{{ q('varnames', '^my') }}"
+   mydict_2: "{{ dict(myvarnames | zip(q('vars', *myvarnames))) }}"
 
    chainss: [A, 2, 3]
    chains_configg:
