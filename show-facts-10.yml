@@ -4,5 +4,5 @@
   remote_user: automation
   hosts: proxy
   gather_facts: yes
-#  roles:
-#    - show-facts-10
+  roles:
+    - show-facts-10
