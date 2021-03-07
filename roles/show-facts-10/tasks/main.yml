@@ -51,4 +51,5 @@
 
     - name: show vars in role/show-facts-10/vars
       debug:
-        var: single_list  
+        #var: single_list
+        var: mydict  
