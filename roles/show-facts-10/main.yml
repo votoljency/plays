@@ -1,0 +1,50 @@
+    - name: custom fact
+      setup:
+        filter: ansible_local
+
+    - name: facts
+      debug:
+        msg: "{{ ansible_local['custom']['sample-exam']['server_role'] }}"
+
+    - name: facts variation
+      debug:
+        msg: "{{ [ansible_version] }}"        
+
+    - name: 10 facts variation
+      debug:
+        msg: "{{ [ansible_version.string] }}"
+
+  #WRONG  - name: 20 facts variation
+  #WRONG    debug:
+  #WRONG      msg: "{{ [ansible_version][string] }}"
+
+    - name: 30 facts variation
+      debug:
+        msg: "{{ [inventory_hostname] }}" 
+
+  #WRONG  - name: 40 facts variation
+  #WRONG    debug:
+  #WRONG      msg: "{{ client1.ipa.vm }}"        
+
+  #  - name: checkout setup
+  #    setup:
+  #      filter: ansible_*_mb
+
+  #10 display ... works  - name: display setup variables
+  #10 display ... works    debug:
+  #10 display ... works      msg: "{{ [ansible_facts.memory_mb] }}"
+
+    - name: 10 display setup variables
+      debug:
+        msg: "{{ ansible_facts['memory_mb']['real']['total'] }}"
+
+    - name: Display all variables/facts known for a host
+      debug:
+        var: hostvars['host']['inventory_hostname']
+        verbosity: 1
+
+  #  - name: 20 display setup variables
+  #    debug:
+  #      msg: "User"
+  #    loop: "{{ lookup('dict', ansible_facts) }}"
+  #    when: "'memtotal_mb' in item.key"
