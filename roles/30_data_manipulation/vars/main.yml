@@ -8,7 +8,7 @@
      - b
      - c
 
-   myvarnames: "{{ q('varnames', '^my') }}"
+   myvarnames: "{{ q('vars', '^my') }}"
    mydict_2: "{{ dict(myvarnames | zip(q('vars', *myvarnames))) }}"
 
    chainss: [A, 2, 3]
