@@ -11,6 +11,8 @@
    myvarnames: "{{ q('varnames', '^my') }}"
    mydict_2: "{{ dict(myothervarnames | zip(q('vars', *myvarnames))) }}"
 
+   uptime_of_host_most_recently_rebooted: "{{ansible_play_hosts_all | map('extract', hostvars, 'ansible_uptime_seconds') | sort | first}}"
+
    chainss: [A, 2, 3]
    chains_configg:
        A:
