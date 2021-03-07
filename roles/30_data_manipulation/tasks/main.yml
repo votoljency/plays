@@ -1,0 +1,69 @@
+- name: extract matching keys from a list of dictionaries
+  remote_user: automation
+  become: yes
+  hosts: proxy
+  gather_facts: no
+  vars:
+    chainss: [A, 2, 3]
+    chains_configg:
+        A:
+            foo: bar
+            foo: bax
+            configss:
+                - typee: routed
+                  version: 0.1
+                - typee: bridged
+                  version: 0.2
+                - typee: routedd
+                  version: 0.1
+                - typee: bridgedd
+                  version: 0.2   
+        2:
+            fooo: baz
+            configss:
+                - typee: routed
+                  version: 1.0
+                - typee: bridged
+                  version: 1.1
+        3:
+            foooo: baz
+            configss:
+                - typee: routed
+                  version: 1.0
+                - typee: bridged
+                  version: 1.1
+  tasks:
+    - name: Show extracted list of keys from a list of dictionaries
+      ansible.builtin.debug:
+        #msg: "{{ chainss | map('extract', chains_configg) | map(attribute='configss') | flatten | map(attribute='typee') | flatten }}"
+        msg: "{{ chainss | map('extract', chains_configg) | map(attribute='configss') | flatten | map(attribute='typee') | flatten }}"
+      #vars:
+      #  chainss: [A, 2, 3]
+      #  chains_configg:
+      #      A:
+      #          foo: bar
+      #          foo: bax
+      #          configss:
+      #              - typee: routed
+      #                version: 0.1
+      #              - typee: bridged
+      #                version: 0.2
+      #              - typee: routedd
+      #                version: 0.1
+      #              - typee: bridgedd
+      #                version: 0.2                      
+      #      2:
+      #          fooo: baz
+      #          configss:
+      #              - typee: routed
+      #                version: 1.0
+      #              - typee: bridged
+      #                version: 1.1
+      #      3:
+      #          foooo: baz
+      #          configss:
+      #              - typee: routed
+      #                version: 1.0
+      #              - typee: bridged
+      #                version: 1.1
+            
