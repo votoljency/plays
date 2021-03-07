@@ -48,3 +48,7 @@
   #      msg: "User"
   #    loop: "{{ lookup('dict', ansible_facts) }}"
   #    when: "'memtotal_mb' in item.key"
+
+    - name: show vars in role/show-facts-10/vars
+      debug:
+        vars: single_list  
