@@ -1,4 +1,8 @@
 ---
+- name: show vars in role/30_data_manipulation/vars
+  debug:
+    var: mydict
+
 - name: Show extracted list of keys from a list of dictionaries
   ansible.builtin.debug:
     #msg: "{{ chainss | map('extract', chains_configg) | map(attribute='configss') | flatten | map(attribute='typee') | flatten }}"
