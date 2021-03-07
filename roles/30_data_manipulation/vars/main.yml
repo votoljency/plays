@@ -1,4 +1,13 @@
 ---
+   keys:
+     - foo
+     - var
+     - bar
+   values:
+     - a
+     - b
+     - c
+
    chainss: [A, 2, 3]
    chains_configg:
        A:
@@ -29,10 +38,11 @@
                  version: 1.1
 
 
-#   list_of_pairs: [ ['a', 'b'], ['c', 'd'] ]
-#   mydict: "{{ dict(list_of_pairs) }}"
+
+   list_of_pairs: [ ['a', 'b'], ['c', 'd'] ]
+   mydict: "{{ dict(list_of_pairs) }}"
 #   single_list: [[[['a', 'b', 'c', 'd']]]]
-   single_list: [ ['a', 'b'], ['c', 'd'] ]
+#   single_list: [ ['a', 'b'], ['c', 'd'] ]
 #   mydict: "{{ dict(single_list) | slice(2) | list }}"
-   mydict: "{{ dict(single_list) | slice(2) }}"        
+#   mydict: "{{ dict(single_list) | slice(2) }}"        
             
