@@ -1,0 +1,8 @@
+---
+- name: list facts
+  become: yes
+  remote_user: automation
+  hosts: proxy
+  gather_facts: yes
+  roles:
+    - show-facts-10
