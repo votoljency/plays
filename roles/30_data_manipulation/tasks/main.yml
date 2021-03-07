@@ -1,4 +1,8 @@
 ---
+- name: Using ‘vars’ to define dictionary from a set of lists without needing a task
+  debug:
+    var: myvarnames
+
 - name: Uses 'combine' to update the dictionary and 'zip' to make pairs of both lists
   ansible.builtin.set_fact:
     mydict: "{{ mydict | default({}) | combine({item[0]: item[1]}) }}"
