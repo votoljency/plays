@@ -3,6 +3,10 @@
   debug:
     var: myvarnames
 
+- name: how to use facts to find a host’s data that meets condition X
+  debug:
+    var:  uptime_of_host_most_recently_rebooted
+
 - name: Uses 'combine' to update the dictionary and 'zip' to make pairs of both lists
   ansible.builtin.set_fact:
     mydict: "{{ mydict | default({}) | combine({item[0]: item[1]}) }}"
