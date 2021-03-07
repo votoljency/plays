@@ -1,4 +1,9 @@
 ---
+- name: Uses 'combine' to update the dictionary and 'zip' to make pairs of both lists
+  ansible.builtin.set_fact:
+    mydict: "{{ mydict | default({}) | combine({item[0]: item[1]}) }}"
+  loop: "{{ (keys | zip(values)) | list }}"
+
 - name: show vars in role/30_data_manipulation/vars
   debug:
     var: mydict
