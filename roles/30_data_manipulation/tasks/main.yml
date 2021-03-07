@@ -1,11 +1,4 @@
-- name: extract matching keys from a list of dictionaries
-  remote_user: automation
-  become: yes
-  hosts: proxy
-  gather_facts: no
-  
- 
-    - name: Show extracted list of keys from a list of dictionaries
+- name: Show extracted list of keys from a list of dictionaries
       ansible.builtin.debug:
         #msg: "{{ chainss | map('extract', chains_configg) | map(attribute='configss') | flatten | map(attribute='typee') | flatten }}"
         msg: "{{ chainss | map('extract', chains_configg) | map(attribute='configss') | flatten | map(attribute='typee') | flatten }}"
