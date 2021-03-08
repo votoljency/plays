@@ -6,4 +6,4 @@
   tasks:
     - name: use shell module to execute ls command
       shell:
-       cmd: ls -Zal /etc/systemd/system/default.target
+        cmd: ls -Zal /etc/systemd/system/default.target
