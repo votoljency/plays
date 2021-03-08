@@ -10,7 +10,7 @@
       - tcpdump
       - mailx
     state: present
-    when: 'proxy' in group_names
+    when: 'proxy' in {{ 'group_names' }}
 
   - name: install lsof and mailx on database host group
     yum:
@@ -18,4 +18,4 @@
       - lsof
       - mailx  
     state: latest
-    when: 'database' in group_names
+    when: 'database' in {{ 'group_names' }} 
