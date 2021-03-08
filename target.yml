@@ -1,0 +1,11 @@
+---
+- name: Sets the default boot target to multi-user
+  hosts: proxy
+  become: yes
+  remote_user: automation
+  tasks:
+    - name: change symlink on remote system
+      file:
+        src: /usr/lib/systemd/system/multi-user.target
+        dest: /etc/systemd/system/default.target
+        state: link
