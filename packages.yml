@@ -4,18 +4,18 @@
   become: yes
   remote_user: automation
   tasks:
-  - name: install tcpdump and mailx on proxy host group
-    yum:
-    name:
-      - tcpdump
-      - mailx
-    state: present
-    when: proxy in "{{ group_names }}"
-
-  - name: install lsof and mailx on database host group
-    yum:
-    name:
-      - lsof
-      - mailx  
-    state: latest
-    when: database in "{{ group_names }}"
+    - name: install tcpdump and mailx on proxy host group
+      yum:
+      name:
+        - tcpdump
+        - mailx
+      state: present
+      when: proxy in "{{ group_names }}"
+  
+    - name: install lsof and mailx on database host group
+      yum:
+      name:
+        - lsof
+        - mailx  
+      state: latest
+      when: database in "{{ group_names }}"
