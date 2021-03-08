@@ -18,4 +18,4 @@
       - lsof
       - mailx  
     state: latest
-    when: 'database' in "{{ 'group_names' }}"
+    when: database in "{{ group_names }}"
