@@ -9,7 +9,7 @@
         name:
           - tcpdump
           - mailx
-        state: absent
+        state: latest
       when: '"proxy" in group_names'
   
     - name: install lsof and mailx on database host group
