@@ -1,0 +1,9 @@
+---
+- name:  list file /etc/systemd/system/default.target
+  hosts: proxy
+  become: yes
+  remote_user: automation
+  tasks:
+    - name: use shell module to execute ls command
+      shell:
+       cmd: ls -Zal /etc/systemd/system/default.target
