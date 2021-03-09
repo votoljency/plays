@@ -8,3 +8,7 @@
       template:
         src: server_list_template.j2
         dest: /etc/server_list.txt
+
+    - name: print hostvars
+      debug:
+        msg: "{{ hostvars }}"    
