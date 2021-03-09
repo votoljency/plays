@@ -11,4 +11,13 @@
 
     - name: show ls_result
       debug:
-        msg: "{{ ls_result }}"  
+        msg: "{{ ls_result }}"
+
+    - name: use shell module to execute cat command
+      shell:
+        cmd: cat /etc/server_list.txt
+      register: cat_result
+
+    - name: show cat_result
+      debug:
+        msg: "{{ cat_result }}"       
