@@ -1,12 +1,12 @@
 ---
-- name:  list file /etc/systemd/system/default.target
-  hosts: proxy
+- name:  list file /etc/server_list.txt
+  hosts: proxy:webservers:database
   become: yes
   remote_user: automation
   tasks:
     - name: use shell module to execute ls command
       shell:
-        cmd: ls -Zal /etc/systemd/system/default.target
+        cmd: ls -Zal /etc/server_list.txt
       register: ls_result
 
     - name: show ls_result
