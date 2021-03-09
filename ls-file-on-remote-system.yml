@@ -18,6 +18,6 @@
         cmd: cat /etc/server_list.txt
       register: cat_result
 
-    - name: show cat_result
+    - name: show date_result
       debug:
-        msg: "{{ cat_result }}"       
+        msg: "{{ date_result }}"       
