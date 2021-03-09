@@ -12,4 +12,4 @@
 
     - name: print hostvars tz
       debug:
-        msg: "{{ ansible_facts['date_time']['tz'] }}"
+        msg: "{{ hostvars['ansible_facts']['date_time'] }}"
