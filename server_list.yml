@@ -10,6 +10,6 @@
         dest: /etc/server_list.txt
       when: inventory_hostname in groups['database']  
 
-  #  - name: print hostvars
-  #    debug:
-  #      msg: "{{ hostvars }}"    
+- name: print hostvars tz
+  debug:
+    msg: "{{ hostvars[date_time][tz] }}"
