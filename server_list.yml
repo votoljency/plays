@@ -1,0 +1,9 @@
+---
+- name: Create and Use Templates to Create Customised Configuration Files
+  hosts: proxy:webservers:database
+  become: yes
+  remote_user: automation
+  tasks:
+    - name: print ansible_play_hosts
+      debug:
+        msg: ansible_play_hosts
