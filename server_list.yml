@@ -1,6 +1,6 @@
 ---
 - name: Create and Use Templates to Create Customised Configuration Files
-  hosts: proxy:webservers:database
+  hosts: proxy
   become: yes
   remote_user: automation
   tasks:
