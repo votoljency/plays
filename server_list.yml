@@ -6,4 +6,4 @@
   tasks:
     - name: print ansible_play_hosts
       debug:
-        msg: ansible_play_hosts
+        msg: "{{ ansible_play_hosts }}"
