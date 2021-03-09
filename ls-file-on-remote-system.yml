@@ -18,6 +18,15 @@
         cmd: cat /etc/server_list.txt
       register: cat_result
 
+    - name: show cat_result
+      debug:
+        msg: "{{ cat_result }}"
+
+    - name: use shell module to execute date command
+      shell:
+        cmd: date
+      register: date_result        
+
     - name: show date_result
       debug:
-        msg: "{{ date_result }}"       
+        msg: "{{ date_result }}"        
