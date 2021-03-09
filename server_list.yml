@@ -1,6 +1,6 @@
 ---
 - name: Create and Use Templates to Create Customised Configuration Files
-  hosts: proxy
+  hosts: proxy:webservers:database:
   become: yes
   remote_user: automation
   tasks:
@@ -8,6 +8,7 @@
       template:
         src: server_list_template.j2
         dest: /etc/server_list.txt
+      when: inventory_hostname in groups['database']  
 
     - name: print hostvars
       debug:
