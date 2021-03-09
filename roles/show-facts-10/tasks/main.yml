@@ -12,7 +12,7 @@
 
     - name: 10 facts variation
       debug:
-        msg: "{{ ansible_facts['fqdn']] }}"
+        msg: "{{ ansible_facts['fqdn'] }}"
 
   #WRONG  - name: 20 facts variation
   #WRONG    debug:
