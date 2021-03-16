@@ -8,3 +8,7 @@
     - name: register info in device_info
       parted: device=/dev/vdb unit=MiB
       register: device_info
+
+    - name: show device info
+      debug:
+        msg: device_info
