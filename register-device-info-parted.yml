@@ -11,4 +11,4 @@
 
     - name: show device info
       debug:
-        msg: device_info
+        msg: "{{ device_info }}"
