@@ -1,0 +1,10 @@
+---
+- name: register device_info with parted
+  hosts: database
+  become: yes
+  remote_user: automation
+  gather_facts: no
+  tasks:
+    - name: register info in device_info
+      parted: device=/dev/vdb unit=MiB
+      register: device_info
