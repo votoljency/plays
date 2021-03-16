@@ -7,7 +7,7 @@
   tasks:
     - name: facts variation
       debug:
-        msg: "{{ ansible_facts }}"
+        msg: "{{ [ansible_facts] }}"
 
     - name: register info in device_info
       parted: device=/dev/vdb unit=MiB
