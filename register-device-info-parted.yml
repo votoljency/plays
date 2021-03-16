@@ -3,11 +3,11 @@
   hosts: database
   become: yes
   remote_user: automation
-  gather_facts: no
+  gather_facts: yes
   tasks:
     - name: facts variation
       debug:
-        msg: "{{ [ansible_facts] }}"
+        msg: "{{ ansible_facts }}"
 
     - name: register info in device_info
       parted: device=/dev/vdb unit=MiB
