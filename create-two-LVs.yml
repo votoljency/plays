@@ -4,17 +4,21 @@
   become: yes
   remote_user: automation
   tasks:
+
+    - name: create vg00
+      lvg:
+        vg: vg00
+        pvs: /dev/vdb2,/dev/vdb3
+
     - name: create 1st LV size 1152
       lvol:
         vg: vg00
         lv: vol_projects
         size: 1152
-        pvs: /dev/vdb2,/dev/vdb3
 
     - name: create 2nd LV size 1118
       lvol:
         vg: vg00
         lv: vol_backups
-        size: 1118
-        pvs: /dev/vdb2,/dev/vdb3       
+        size: 1118       
       
