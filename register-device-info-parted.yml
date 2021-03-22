@@ -18,7 +18,9 @@
         msg: "{{ device_info }}"
 
     - name: create partition no. 3
-      parted: device=/dev/vdb unit=MiB
+      parted:
+        unit: MiB
+        device: /dev/vdb
         fs_type: ext4
         number: 3
         part_type: primary
