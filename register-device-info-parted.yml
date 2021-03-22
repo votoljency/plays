@@ -17,7 +17,7 @@
       debug:
         msg: "{{ device_info }}"
 
-    - name: create partition # 3
+    - name: create partition no. 3
       parted: device=/dev/vdb unit=MiB
       fs_type: ext4
       number: 3
