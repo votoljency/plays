@@ -1,0 +1,9 @@
+---
+- name: providing-iscsi-target
+  hosts: database
+  become: yes
+  remote_user: automation
+  vars_files: secret.yml
+  roles:
+    - ondrejhome.targetcli
+    
