@@ -21,7 +21,7 @@
       parted:
         unit: MiB
         device: /dev/vdb
-        fs_type: ext4
+       # fs_type: ext4
         number: 3
         part_type: primary
         part_start: 1954.0
