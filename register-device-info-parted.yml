@@ -19,12 +19,12 @@
 
     - name: create partition no. 3
       parted: device=/dev/vdb unit=MiB
-      fs_type: ext4
-      number: 3
-      part_type: primary
-      part_start: 1954.0
-      part_end: 3072
-      state: present
+        fs_type: ext4
+        number: 3
+        part_type: primary
+        part_start: 1954.0
+        part_end: 3072
+        state: present
 
     - name: register info in device_info
       parted: device=/dev/vdb unit=MiB
