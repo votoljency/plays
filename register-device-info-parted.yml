@@ -24,8 +24,8 @@
        # fs_type: ext4
         number: 3
         part_type: primary
-        part_start: 1954.0
-        part_end: 3072
+        part_start: 1954.0MiB
+        part_end: 3072.0MiB
         state: present
 
     - name: register info in device_info
