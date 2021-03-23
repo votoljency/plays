@@ -17,4 +17,4 @@
             name: 'server.backups'
             type: 'block'
         initiators:
-          - 'iqn.2021-03.vm.ipa.client4:client 
+          - 'iqn.2021-03.vm.ipa.client4:client'
