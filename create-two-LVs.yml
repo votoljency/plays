@@ -16,9 +16,9 @@
         lv: vol_projects
         size: '1152'
 
-    - name: create 2nd LV size 1117
+    - name: create 2nd LV size 1110
       lvol:
         vg: vg00
         lv: vol_backups
-        size: '1117'      
+        size: '1110'      
       
