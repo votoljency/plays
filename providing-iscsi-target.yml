@@ -6,4 +6,15 @@
   vars_files: secret.yml
   roles:
     - ondrejhome.targetcli
-    
+  vars:
+    iscsi_targets:
+      - wwn: 'iqn.2021-03.vm.ipa.client4:tgt1'
+        disks:
+          - path: '/dev/vg00/vol_projects'
+            name: 'server.projects'
+            type: 'block'
+          - path: '/dev/vg00/vol_backups'
+            name: 'server.backups'
+            type: 'block'
+        initiators:
+          - 'iqn.2021-03.vm.ipa.client4:client 
