@@ -8,3 +8,4 @@
     - OndrejHome.iscsiadm
   vars:
     iscsi_target_ip: 192.168.128.8
+    custom_iscsi_initiator_name: iqn.2021-03.vm.ipa.client4:client
