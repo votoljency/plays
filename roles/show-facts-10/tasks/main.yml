@@ -1,3 +1,6 @@
+    - name: Collect facts about installed iSCSI initiator
+      iscsiadm_facts:
+
     - name: custom fact
       setup:
         filter: ansible_local
