@@ -28,8 +28,8 @@
     group: 'root'
     mode: '0600'
 
-- name: Collect facts about installed iSCSI initiator
-  iscsiadm_facts:
+#- name: Collect facts about installed iSCSI initiator
+#  iscsiadm_facts:
 
 - name: Setup iSCSI Initiator name
   lineinfile:
