@@ -13,7 +13,7 @@ all:
 
     webservers:
       hosts:
-        client2.ipa.vm:
+      #  client2.ipa.vm:
         client3.ipa.vm:
       vars:
         proxy: no
