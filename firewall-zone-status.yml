@@ -3,4 +3,4 @@
   become: yes
   hosts: webservers
   roles:
-    firewalld_common
+    - firewalld_common
