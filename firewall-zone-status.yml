@@ -1,0 +1,6 @@
+---
+- name: firewall zone status
+  become: yes
+  hosts: webservers
+  roles:
+    firewalld_common
