@@ -26,7 +26,7 @@
 
 - name: show _apache_version
   debug:
-    msg: _apache_version
+    var: _apache_version
 
 - name: Create apache_version variable.
   set_fact:
