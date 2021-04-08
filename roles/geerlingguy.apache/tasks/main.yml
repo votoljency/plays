@@ -24,6 +24,10 @@
   check_mode: false
   register: _apache_version
 
+- name: show _apache_version
+  debug:
+    msg: _apache_version
+
 - name: Create apache_version variable.
   set_fact:
     apache_version: "{{ _apache_version.stdout.split()[2].split('/')[1] }}"
