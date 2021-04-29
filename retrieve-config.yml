@@ -7,7 +7,7 @@
   tasks:
   - name: Query IPA global configuration
     ipaconfig:
-      ipaadmin_password: SomeADMINpassword
+      ipaadmin_password: 123456789
     register: serverconfig
 
   - debug:
