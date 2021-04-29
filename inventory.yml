@@ -1,7 +1,5 @@
 all:
-  hosts:
-    master.ipa.vm:
-      ansible_connection: local
+  
   children:
     proxy:
       hosts:
@@ -30,8 +28,12 @@ all:
 
     clockworknet:
       hosts:
-        client3.ipa.vm:  
+        client3.ipa.vm:
 
+    ipaserver:      
+      hosts:
+        master.ipa.vm:
+          ansible_connection: local
     test:
       hosts:
         client3.ipa.vm:
