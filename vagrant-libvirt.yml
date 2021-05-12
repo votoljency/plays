@@ -3,10 +3,10 @@
   connection: local
   vars:
   tasks:
-    - name: install the 'Virtualization Host' package group
-      yum:
-        name: "@Virtualization Platform"
-        state: present
+   # - name: install the 'Virtualization Host' package group
+   #   yum:
+   #     name: "@Virtualization Platform"
+   #     state: present
 
     - name: Start the libvirtd service and have it start at boot time
       service:
