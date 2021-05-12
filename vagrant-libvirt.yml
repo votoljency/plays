@@ -22,7 +22,7 @@
 
     - name: install the vagrant rpm from a remote repo
       yum:
-        name: https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_x86_64.rpm
+        name: vagrant
         state: present
 
     - name: Install build dependencies for vagrant-libvirt plugin installation.
