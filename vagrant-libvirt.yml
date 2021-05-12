@@ -1,0 +1,44 @@
+- hosts: localhost
+  become: true
+  connection: local
+  vars:
+  tasks:
+    - name: install the 'Virtualization Host' package group
+      yum:
+        name: "@Virtualization Platform"
+        state: present
+
+    - name: Start the libvirtd service and have it start at boot time
+      service:
+        name: libvirtd.service
+        state: started
+        enabled: yes
+
+    - name: Adding existing user {{ user }} to group libvirt
+      user:
+        name: "{{ user }}"
+        groups: libvirt
+        append: yes
+
+    - name: install the vagrant rpm from a remote repo
+      yum:
+        name: https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_x86_64.rpm
+        state: present
+
+    - name: Install build dependencies for vagrant-libvirt plugin installation.
+      yum:
+        name:
+          - libvirt-devel
+          - ruby-devel
+          - gcc
+        state: present
+
+    - name: List installed Vagrant plugins
+      shell: "vagrant plugin list"
+      changed_when: False
+      register: vagrant_initial_plugins_list
+
+    - name: Install Vagrant plugins
+      shell: "vagrant plugin install vagrant-libvirt"
+      when:
+        - '"vagrant-libvirt" not in vagrant_initial_plugins_list.stdout'
