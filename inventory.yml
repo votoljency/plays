@@ -5,27 +5,18 @@ all:
       hosts:
         client1.ipa.vm:
       vars:
-        proxy: yes
-        webservers: no
-        database: no
 
     webservers:
       hosts:
       #  client2.ipa.vm:
         client3.ipa.vm:
       vars:
-        proxy: no
-        webservers: yes
-        database: no
 
     database:
       hosts:
         client4.ipa.vm:
       vars:
-        proxy: no
-        webservers: no
-        database: yes
-
+        
     clockworknet:
       hosts:
         client3.ipa.vm:

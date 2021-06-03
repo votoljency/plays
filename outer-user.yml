@@ -1,8 +1,8 @@
 ---
 - name: "create users on servers depending on their UID"
-  hosts: proxy:webservers:database
+  hosts: ipaserver
   become: yes
-  remote_user: automation
+  remote_user: vagrant
   vars:
   #users:
   #  - username: alice

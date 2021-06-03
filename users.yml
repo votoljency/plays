@@ -1,6 +1,6 @@
 ---
 - name: "create users on servers depending on their UID"
-  hosts: proxy
+  hosts: ipaserver
   become: yes
   remote_user: automation
   vars:
