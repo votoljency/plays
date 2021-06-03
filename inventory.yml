@@ -33,7 +33,7 @@ all:
     ipaserver:      
       hosts:
         master.ipa.vm:
-          ansible_connection: local
+        #  ansible_connection: local
     test:
       hosts:
         client3.ipa.vm:
