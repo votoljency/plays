@@ -1,8 +1,8 @@
 ---
-- name: list facts
+- name: call ipaserver role
   become: yes
   remote_user: automation
   hosts: ipaserver
   gather_facts: yes
   roles:
-    - show-facts-10
+    - ipaserver

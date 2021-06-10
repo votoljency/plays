@@ -1,13 +1,13 @@
 ---
 - name: Create a symbolic link
   hosts: ipaserver
-  remote-user: automation
+  remote_user: automation
   gather_facts: no
-  become: no
+  become: yes
   tasks:
   - name: Create a symbolic link
     file:
-      src: /usr/lib/systemd/system/graphical.target
+      src: /usr/lib/systemd/system/multi-user.target
       dest: /etc/systemd/system/default.target
       owner: automation
       group: automation

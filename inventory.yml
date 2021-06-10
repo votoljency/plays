@@ -25,6 +25,12 @@ all:
       hosts:
         master.ipa.vm:
         #  ansible_connection: local
+      vars:
+        ipadm_password: 123456789
+        ipaadmin_password: 123456789
+        ipaserver_realm: IPA.VM
+        ipaserver_domain: ipa.vm
+
     test:
       hosts:
         client3.ipa.vm:

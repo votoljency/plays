@@ -1,0 +1,12 @@
+---
+- name: using fetch
+  hosts: ipaserver
+  remote_user: automation
+  become: no
+  gather_facts: no
+  tasks:  
+    - name: Storing in a path relative to the playbook
+      fetch:
+        src: /tmp/uniquefile
+        dest: special/prefix-{{ inventory_hostname }}
+        flat: yes

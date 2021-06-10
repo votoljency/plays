@@ -5,9 +5,9 @@
       setup:
         filter: ansible_local
 
-    - name: facts
-      debug:
-        msg: "{{ ansible_local['custom']['sample-exam']['server_role'] }}"
+  #  - name: facts
+  #    debug:
+  #      msg: "{{ ansible_local['custom']['sample-exam']['server_role'] }}"
 
     - name: facts variation
       debug:
