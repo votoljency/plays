@@ -23,7 +23,7 @@ all:
 
     ipaserver:      
       hosts:
-        master.ipa.vm:
+        1st.ipa.vm:
         #  ansible_connection: local
       vars:
         ipadm_password: 123456789
