@@ -1,7 +1,7 @@
 ---
 - name: call ipaserver role
   become: yes
-  remote_user: automation
+  remote_user: vagrant
   hosts: ipaserver
   gather_facts: yes
   roles:
