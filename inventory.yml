@@ -8,8 +8,7 @@ all:
 
     webservers:
       hosts:
-      #  client2.ipa.vm:
-        client3.ipa.vm:
+        2nd.ipa.vm:
       vars:
 
     database:
