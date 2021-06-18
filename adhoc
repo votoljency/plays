@@ -6,7 +6,7 @@
 
 
 ansible webservers -m ansible.builtin.user -a "name=automation password={{ 'devops' | password_hash('sha512', '55') }} groups=wheel append=yes" -u vagrant   --become    --ask-become-pass
-ansible   --user='vagrant' --become   -m ansible.builtin.authorized_key -a "user=automation key=present key='{{ lookup('file', '/home/automation/.ssh/id_rsa.pub') }}'"    webservers     
+ansible   --user='vagrant' --become   -m ansible.builtin.authorized_key -a "user=automation key=present key='{{ lookup('file', '/home/automation/.ssh/id_rsa.pub') }}'"    webservers    --ask-become-pass    
 #ansible ipaserver -m ansible.builtin.lineinfile -a "path=/etc/sudoers state=present regexp='^# %wheel       ALL=(ALL)      NOPASSWD: ALL' line='%wheel ALL=(ALL) NOPASSWD: ALL' validate='/usr/sbin/visudo -cf %s'" -u vagrant --ask-pass --become
-ansible webservers -m ansible.builtin.copy -a "dest=/etc/sudoers.d/20automation content='automation ALL=(ALL) NOPASSWD: ALL'" -u vagrant  --become
-ansible webservers -m ansible.builtin.copy -a "dest=/etc/sudoers.d/10vagrant content='vagrant ALL=(ALL) NOPASSWD: ALL'" -u vagrant  --become
+ansible webservers -m ansible.builtin.copy -a "dest=/etc/sudoers.d/20automation content='automation ALL=(ALL) NOPASSWD: ALL'" -u vagrant  --become    --ask-become-pass
+ansible webservers -m ansible.builtin.copy -a "dest=/etc/sudoers.d/10vagrant content='vagrant ALL=(ALL) NOPASSWD: ALL'" -u vagrant  --become   --ask-become-pass
