@@ -30,6 +30,7 @@ all:
         ipaserver_realm: IPA.VM
         ipaserver_domain: ipa.vm
         ipaserver_setup_dns: yes
+        ipaserver_auto_forwarders: yes
 
     test:
       hosts:
