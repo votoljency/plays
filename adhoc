@@ -5,7 +5,7 @@
 #ansible all -m lineinfile -a "path=/etc/sudoers state=present regexp='^#%wheel' line='%wheel ALL=(ALL:ALL) NOPASSWD: ALL' validate='visudo -cf %s'" -u root
 
 
-ansible ipaserver -m ansible.builtin.user -a "name=automation password={{ $6$SgXEO6sBlqOfqgfl$5PNoFULcPTShhp7mYiIQhdbjYS5D39uca62XBcV60Alrb8pQntcH4RehGEe2jNiD/mpc5F32i4.EyYMW8OQ4R0 }} groups=wheel append=yes" -u vagrant   --become    --ask-become-pass
+ansible ipaserver -m ansible.builtin.user -a "name=automation password={{ '$6$SgXEO6sBlqOfqgfl$5PNoFULcPTShhp7mYiIQhdbjYS5D39uca62XBcV60Alrb8pQntcH4RehGEe2jNiD/mpc5F32i4.EyYMW8OQ4R0' }} groups=wheel append=yes" -u vagrant   --become    --ask-become-pass
 ansible   --user='vagrant' --become   -m ansible.builtin.authorized_key -a "user=automation key=present key='{{ lookup('file', '/home/automation/.ssh/id_rsa.pub') }}'"    ipaserver    --ask-become-pass    
 #ansible ipaserver -m ansible.builtin.lineinfile -a "path=/etc/sudoers state=present regexp='^# %wheel       ALL=(ALL)      NOPASSWD: ALL' line='%wheel ALL=(ALL) NOPASSWD: ALL' validate='/usr/sbin/visudo -cf %s'" -u vagrant --ask-pass --become
 ansible ipaserver -m ansible.builtin.copy -a "dest=/etc/sudoers.d/20automation content='automation ALL=(ALL) NOPASSWD: ALL'" -u vagrant  --become    --ask-become-pass
