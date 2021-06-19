@@ -4,5 +4,6 @@
   remote_user: automation
   hosts: ipaserver
   gather_facts: yes
+  vars_files: secret.yml
   roles:
     - ipaserver
