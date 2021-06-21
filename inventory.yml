@@ -39,7 +39,7 @@ all:
       vars:
         ipaadmin_principal: admin
         ipaclient_domain: ipa.vm
-        ipaservers: 1st.ipa.vm
+        ipaclient_servers: 1st.ipa.vm
 
     test:
       hosts:
