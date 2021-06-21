@@ -38,6 +38,7 @@ all:
         2nd.ipa.vm:
       vars:
         ipaadmin_principal: admin
+        ipaclient_domain: ipa.vm
 
     test:
       hosts:
