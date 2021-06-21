@@ -1,0 +1,19 @@
+---
+- name: Playbook to handle vaults
+  hosts: ipaserver
+  become: true
+
+  tasks:
+  - name: Retrieve data from vault and register it in 'ipavault'
+    ipavault:
+      ipaadmin_password: 123456789
+      name: secret
+      username: admin
+      password: devops
+      state: retrieved
+    no_log: yes
+    register: ipavault
+
+  - name: Print retrieved data from vault
+    debug:
+      var: ipavault.vault.data
