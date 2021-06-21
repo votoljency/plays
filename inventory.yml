@@ -32,6 +32,13 @@ all:
         ipaserver_setup_dns: yes
         ipaserver_auto_forwarders: yes
 
+
+    ipaclients:
+      hosts:
+        2nd.ipa.vm:
+      vars:
+        ipaadmin_principal: admin
+
     test:
       hosts:
         client3.ipa.vm:
