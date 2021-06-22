@@ -35,7 +35,7 @@ all:
 
     ipaclients:
       hosts:
-        2nd.ipa.vm:
+        3rd.ipa.vm:
       vars:
         ipaadmin_principal: admin
         ipaclient_domain: ipa.vm
