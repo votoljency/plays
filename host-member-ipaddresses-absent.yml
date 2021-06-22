@@ -1,0 +1,14 @@
+---
+- name: Host member IP addresses absent
+  hosts: ipaserver
+  become: true
+
+  tasks:
+  - name: Ensure host01.example.com IP addresses absent
+    ipahost:
+      ipaadmin_password: 123456789
+      name: 2nd.ipa.vm
+      ip_address:
+      - 192.168.129.41
+      action: member
+      state: absent
