@@ -7,6 +7,7 @@
   tasks:
   - name: Ensure host host01.example.com is absent
     ipahost:
+      ipaadmin_password: 123456789
       name: 2nd.ipa.vm
       update_dns: yes
       state: absent
