@@ -1,0 +1,20 @@
+---
+- name: Host present
+  hosts: ipaserver
+  vars_files: secret.yml
+  become: true
+
+  tasks:
+  - name: Ensure host is present
+    ipahost:
+      ipaadmin_password: 
+      name: 2nd.ipa.vm
+      description: Example host
+      ip_address: 192.168.129.41
+      locality: Lab
+      ns_host_location: Lab
+      ns_os_version: rhel 8
+      ns_hardware_platform: Lenovo E585
+      mac_address:
+      - "52:54:00:aa:98:e6"
+      state: present
