@@ -1,0 +1,11 @@
+---
+- name: Playbook to manage IPA service.
+  hosts: ipaserver
+  become: true
+  gather_facts: false
+
+  tasks:
+  # Ensure service is present
+  - ipaservice:
+      ipaadmin_password: 123456789
+      name: nfs/2nd.ipa.vm
