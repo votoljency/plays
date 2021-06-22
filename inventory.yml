@@ -3,7 +3,7 @@ all:
   children:
     proxy:
       hosts:
-        client1.ipa.vm:
+        3rd.ipa.vm:
       vars:
 
     webservers:
