@@ -17,4 +17,5 @@
       ns_hardware_platform: Lenovo E585
       mac_address:
       - "52:54:00:aa:98:e6"
+      update_dns: yes
       state: present
