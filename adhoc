@@ -5,7 +5,7 @@
 #ansible all -m lineinfile -a "path=/etc/sudoers state=present regexp='^#%wheel' line='%wheel ALL=(ALL:ALL) NOPASSWD: ALL' validate='visudo -cf %s'" -u root
 
 ansible proxy -m ansible.builtin.user -a "name=automation  state=absent remove=yes" -u panicjens   --ask-pass  --become    
-ansible proxy -m ansible.builtin.user -a "name=automation password={{ '$6$et.UfSaKWCwC6xMS$KyngeD1GoSUotlDISRhzfWYCcNYBAJF30lY9s8TMDgFGCCrKXCTmZvUUPVnLIIJbVHl4TzQiBwsM5cFHq1h9o/' }} groups=wheel append=yes" -u panicjens   --ask-pass  --become    
+ansible proxy -m ansible.builtin.user -a "name=automation password={{ "$6$et.UfSaKWCwC6xMS$KyngeD1GoSUotlDISRhzfWYCcNYBAJF30lY9s8TMDgFGCCrKXCTmZvUUPVnLIIJbVHl4TzQiBwsM5cFHq1h9o/" }} groups=wheel append=yes" -u panicjens   --ask-pass  --become    
 ansible   --user='panicjens' --become   -m ansible.builtin.authorized_key -a "user=automation key=present key='{{ lookup('file', '/home/automation/.ssh/id_rsa.pub') }}'"    proxy   --ask-pass       
 #ansible ipaserver -m ansible.builtin.lineinfile -a "path=/etc/sudoers state=present regexp='^# %wheel       ALL=(ALL)      NOPASSWD: ALL' line='%wheel ALL=(ALL) NOPASSWD: ALL' validate='/usr/sbin/visudo -cf %s'" -u vagrant --ask-pass --become
 #ansible proxy -m ansible.builtin.copy -a "dest=/etc/sudoers.d/20automation content='automation ALL=(ALL) NOPASSWD: ALL'" -u panicjens  --become  --ask-pass  --ask-become-pass
