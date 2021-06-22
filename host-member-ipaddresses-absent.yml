@@ -11,4 +11,4 @@
       ip_address:
       - 192.168.129.41
       action: member
-      state: absent
+      state: present
