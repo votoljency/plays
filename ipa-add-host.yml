@@ -7,7 +7,7 @@
   tasks:
   - name: Ensure host is present
     ipahost:
-      ipaadmin_password: 
+      ipaadmin_password: 123456789
       name: 2nd.ipa.vm
       description: Example host
       ip_address: 192.168.129.41
