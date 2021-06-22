@@ -1,0 +1,12 @@
+---
+- name: Playbook to handle hosts
+  hosts: ipaserver
+  vars_files: secret.yml
+  become: true
+
+  tasks:
+  - name: Ensure host host01.example.com is absent
+    ipahost:
+      name: 2nd.ipa.vm
+      update_dns: yes
+      state: absent
