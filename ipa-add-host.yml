@@ -8,14 +8,14 @@
   - name: Ensure host is present
     ipahost:
       ipaadmin_password: 123456789
-      name: 2nd.ipa.vm
+      name: 3rd.ipa.vm
       description: Example host
-      ip_address: 192.168.129.41
+      ip_address: 192.168.1.102
       locality: Lab
       ns_host_location: Lab
-      ns_os_version: rhel 8
+      ns_os_version: fedora 34
       ns_hardware_platform: Lenovo E585
       mac_address:
-      - "52:54:00:aa:98:e6"
+      - "00:f4:8d:d6:68:43"
       update_dns: yes
       state: present
