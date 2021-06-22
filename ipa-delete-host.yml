@@ -1,7 +1,7 @@
 ---
 - name: Playbook to handle hosts
   hosts: ipaserver
-  vars_files: /home/panicjens/plays/secret.yml
+  vars_files: /home/automation/plays/secret.yml
   become: true
 
   tasks:
