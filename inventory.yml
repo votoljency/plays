@@ -46,6 +46,7 @@ all:
         ipaserver_domain: ipa.vm
         ipaserver_setup_dns: yes
         ipaserver_auto_forwarders: yes
+        ipaserver_firewalld_zone: public
 
     test:
       hosts:
