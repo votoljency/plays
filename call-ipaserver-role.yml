@@ -2,7 +2,7 @@
 - name: call ipaserver role
   become: yes
   remote_user: automation
-  hosts: ipaserver
+  hosts: ipaclients
   gather_facts: yes
   vars_files: secret.yml
   roles:
