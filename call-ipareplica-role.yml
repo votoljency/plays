@@ -1,0 +1,10 @@
+---
+- name: Playbook to configure IPA replicas
+  hosts: ipareplicas
+  become: true
+  vars_files:
+  - secret.yml
+
+  roles:
+  - role: ipareplica
+    state: present
