@@ -48,6 +48,22 @@ all:
         ipaserver_auto_forwarders: yes
         ipaserver_firewalld_zone: public
 
+
+    ipareplicas:
+      hosts:
+        4th.ipa.vm:
+      vars:
+        ipaadmin_principal: admin
+        ipaclient_domain: ipa.vm
+        ipaclient_servers: 3rd.ipa.vm
+        ipaadmin_password: 123456789
+        ipadm_password: 123456789
+        ipaserver_realm: IPA.VM
+        ipaserver_domain: ipa.vm
+        ipaserver_setup_dns: yes
+        ipaserver_auto_forwarders: yes
+        ipaserver_firewalld_zone: public    
+
     test:
       hosts:
         client3.ipa.vm:
