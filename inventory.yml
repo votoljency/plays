@@ -62,7 +62,11 @@ all:
         ipaserver_domain: ipa.vm
         ipaserver_setup_dns: yes
         ipaserver_auto_forwarders: yes
-        ipaserver_firewalld_zone: public    
+        ipaserver_firewalld_zone: public
+        ipareplica_setup_ca: yes
+        ipareplica_setup_kra: yes
+        ipaservers: 4th.ipa.vm
+           
 
     test:
       hosts:
