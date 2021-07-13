@@ -1,6 +1,6 @@
 ---
 - name: Playbook to configure IPA replicas
-  hosts: ipaclients
+  hosts: ipareplicas
   become: true
   vars_files:
   - secret.yml
