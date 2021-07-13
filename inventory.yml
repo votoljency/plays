@@ -22,7 +22,7 @@ all:
 
     ipaserver:      
       hosts:
-        1st.ipa.vm:
+        4th.ipa.vm:
         #  ansible_connection: local
       vars:
       #  ipaadmin_password: 123456789
@@ -51,11 +51,11 @@ all:
 
     ipareplicas:
       hosts:
-        4th.ipa.vm:
+        3rd.ipa.vm:
       vars:
         ipaadmin_principal: admin
         ipaclient_domain: ipa.vm
-        ipaclient_servers: 3rd.ipa.vm
+        ipaclient_servers: 4th.ipa.vm
         ipaadmin_password: 123456789
         ipadm_password: 123456789
         ipaserver_realm: IPA.VM
