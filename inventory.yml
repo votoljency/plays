@@ -55,7 +55,7 @@ all:
       vars:
         ipaadmin_principal: admin
         ipaclient_domain: ipa.vm
-        ipaclient_servers: 4th.ipa.vm
+      #  ipaclient_servers: 4th.ipa.vm
         ipaadmin_password: 123456789
         ipadm_password: 123456789
         ipaserver_realm: IPA.VM
