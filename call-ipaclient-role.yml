@@ -6,4 +6,4 @@
 
   roles:
   - role: ipaclient
-    state: present
+    state: absent
