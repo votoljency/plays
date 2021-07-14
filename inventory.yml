@@ -64,7 +64,7 @@ all:
         ipaserver_auto_forwarders: yes
         ipaserver_firewalld_zone: public
         ipareplica_setup_ca: yes
-        ipareplica_setup_kra: yes
+        ipareplica_setup_kra: no
         ipaservers: 4th.ipa.vm
            
 
